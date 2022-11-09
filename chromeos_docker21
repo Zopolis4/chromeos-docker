@@ -1,0 +1,319 @@
+#!/bin/bash
+# chromeos_docker.sh
+# Usage:
+# REPOSITORY=YOUR_DOCKER_HUB_REPOSITORY_NAME chromeos_docker.sh recovery_file_url container_name chromeos_milestone arch
+# or if image.bin already exists this works too: 
+# chromeos_docker.sh dummy name milestone arch
+# (Default is not to delete the image after download.)
+# e.g. 
+# Example for x86_64:
+# chromeos_docker.sh https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_13816.82.0_nocturne_recovery_stable-channel_mp.bin.zip nocturne 90 x86_64
+# For ChromeOS Flex:
+# chromeos_docker https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15054.115.0_reven_recovery_stable-channel_mp-v2.bin.zip reven 106 x86_64
+# Example for armv7l:
+# chromeos_docker.sh https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_13904.55.0_veyron-fievel_recovery_stable-channel_fievel-mp.bin.zip fievel 91 armv7l
+# Examples for i686:
+# chromeos_docker.sh https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_9334.72.0_x86-alex-he_recovery_stable-channel_alex-mp-v4.bin.zip alex 58 i686
+# chromeos_docker.sh https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_9334.72.0_x86-zgb-he_recovery_stable-channel_zgb-mp-v3.bin.zip zgb 58 i686
+
+# Note also you should have an account setup on docker's hub. Make sure to set that account as REPOSITORY 
+# in your environment and also make sure that you have local login from your command line enabled.
+# 
+# Alternately you can setup a local registry thus:
+# Instructions here: https://docs.docker.com/registry/deploying/
+# If you setup your registry with an ssl cert, you may have fewer problems.
+# You can set the registry URL with the REPOSITORY env variable.
+# e.g. export REPOSITORY="dockerserver:5000"
+# sudo apt install -y uidmap golang
+imageurl="${1}"
+name="${2}"
+milestone="${3}"
+ARCH="${4}"
+: "${outdir:=$(pwd)}"
+: "${REPOSITORY:=satmandu}"
+: "${PKG_CACHE:=$outdir/pkg_cache}"
+echo "  image url:${imageurl}"
+echo "       name: ${name}"
+echo "  milestone: ${milestone}"
+echo "       ARCH: ${ARCH}"
+echo " REPOSITORY: ${REPOSITORY}"
+echo "output root: ${outdir}"
+echo "  PKG_CACHE: ${PKG_CACHE}"
+
+tmpdir=$(mktemp -d docker_XXXX -p "$(pwd)")
+
+function abspath {
+  echo $(cd "$1" && pwd)
+}
+countdown()
+(
+  IFS=:
+  set -- $*
+  secs=$(( ${1#0} * 3600 + ${2#0} * 60 + ${3#0} ))
+  while [ $secs -gt 0 ]
+  do
+    sleep 1 &
+    printf "\r%02d:%02d:%02d" $((secs/3600)) $(( (secs/60)%60)) $((secs%60))
+    secs=$(( $secs - 1 ))
+    wait
+  done
+  echo
+)
+
+get_arch () {
+  if [[ ! -f "$ARCH/${name}.image.bin.${milestone}.zip" ]] ; then
+    echo "$ARCH/${name}.image.bin.${milestone}.zip not found" 
+    mkdir -p "$ARCH"
+    curl --retry 3 -Lf "$imageurl" -o "$ARCH"/${name}.image.bin.${milestone}.zip || ( echo "Download failed" && kill $$ )
+  fi
+  mkdir -p "${tmpdir}"_zip
+
+    unzip -p "$ARCH"/${name}.image.bin.${milestone}.zip > "${tmpdir}"_zip/${name}.image.bin."${milestone}"
+    milestone_image="${tmpdir}_zip/${name}.image.bin.${milestone}"
+  sudo kpartx -d "$milestone_image"
+  rootpart=$(sudo kpartx -v -a "$milestone_image" | grep 'p3\b' | awk '{print $3}')
+  if [[ -n $rootpart ]]; then 
+    sudo umount /dev/mapper/"$rootpart" || true
+    echo "sudo mount -o ro -t ext4 /dev/mapper/$rootpart $tmpdir"
+    sudo mount -o ro -t ext4 /dev/mapper/"$rootpart" "$tmpdir"
+  else
+    rootpart=$(losetup | grep $milestone_image | awk '{print $1}')
+    [[ -n $rootpart ]] && sudo mount -o ro -t ext4 "$rootpart" "$tmpdir"
+  fi
+  [[ -z "$rootpart" ]] && (echo "The downloaded recovery in ${name}.image.bin.${milestone}.zip doesn't look right." && kill $$)
+  chromeos_arch=$(file "$tmpdir"/bin/bash | awk '{print $7}' | sed 's/,//g')
+  echo "chromeos_arch is $chromeos_arch"
+  if [[ "$chromeos_arch" == "x86-64" ]]; then
+    ARCH_LIB=lib64
+    ARCH=x86_64
+    CREW_PREFIX=/usr/local
+    CREW_LIB_PREFIX=$CREW_PREFIX/$ARCH_LIB
+    DOCKER_PLATFORM=amd64
+    MARCH=x86-64
+    PLATFORM="linux/amd64"
+    SETARCH_ARCH=x86_64
+    CREW_KERNEL_VERSION=4.14
+  elif [[ "$chromeos_arch" == "ARM" ]]; then
+    ARCH=armv7l
+    ARCH_LIB=lib
+    CREW_PREFIX=/usr/local
+    CREW_LIB_PREFIX=$CREW_PREFIX/$ARCH_LIB
+    DOCKER_PLATFORM=arm32v7
+    MARCH=armv7-a
+    PLATFORM="linux/arm/v7"
+    SETARCH_ARCH=armv7l
+    CREW_KERNEL_VERSION=4.14
+  elif [[ "$chromeos_arch" == "Intel" ]]; then
+    ARCH=i686
+    ARCH_LIB=lib
+    CREW_PREFIX=/usr/local
+    CREW_LIB_PREFIX=$CREW_PREFIX/$ARCH_LIB
+    DOCKER_PLATFORM=386
+    MARCH=i686
+    PLATFORM="linux/386"
+    SETARCH_ARCH=i686
+    CREW_KERNEL_VERSION=3.8
+  elif [[ "$chromeos_arch" == "file" ]]; then
+    echo "Error in determining image architecture."
+    exit 1
+  fi
+}
+import_to_Docker () {
+  if ! docker image ls | grep ${REPOSITORY}/crewbase:"${name}"-${ARCH}.m"${milestone}" ; then
+    (cd "$tmpdir" && sudo tar -c . | docker import --platform ${PLATFORM} - ${REPOSITORY}/crewbase:"${name}"-${ARCH}.m"${milestone}")
+  fi
+  sudo umount "$tmpdir"
+  rm -rf "$tmpdir"
+  rm -rf "${tmpdir}_zip"
+}
+build_dockerfile () {
+  cd "${outdir}" || exit
+  cat <<EOFFFFF > ./${ARCH}/.dockerignore
+*image.bin* 
+*.lz4 
+pkg_cache/*
+EOFFFFF
+    cat <<EOFFFF > ./${ARCH}/Dockerfile
+# syntax=docker/dockerfile:1.3-labs
+ARG UID=1000
+FROM ${REPOSITORY}/crewbase:${name}-${ARCH}.m${milestone} AS builder
+ARG TARGETPLATFORM
+ARG BUILDPLATFORM
+RUN echo "I am running on \$BUILDPLATFORM, building for \$TARGETPLATFORM" 
+#ENV LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:$CREW_LIB_PREFIX
+# Set githup repo information being synced from for install.
+ENV REPO=chromebrew
+ENV OWNER=chromebrew
+ENV BRANCH=master
+ENV CREW_KERNEL_VERSION=$CREW_KERNEL_VERSION
+ENV ARCH=$ARCH
+ENV PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin
+ENV HOME=/home/chronos/user/
+ENV LANG=en_US.UTF-8
+ENV LC_all=en_US.UTF-8
+ENV XML_CATALOG_FILES=/usr/local/etc/xml/catalog
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+RUN --mount=type=bind,target=/input <<EOF1
+passwd -d chronos
+echo "chronos ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+tee -a /home/chronos/user/.profile <<TEEPROFILEEOF
+set -a
+CREW_TESTING_REPO=https://github.com/chromebrew/chromebrew.git
+CREW_TESTING_BRANCH=master
+CREW_TESTING=0
+set +a
+TEEPROFILEEOF
+chown chronos:chronos /home/chronos/user/.profile
+tee -a /home/chronos/user/.bashrc <<TEEBASHRCEOF
+set -a
+QEMU_CPU=max
+CFLAGS="-march=$MARCH"
+: "\\\${LANG:=en_US.UTF-8}"
+: "\\\${LC_ALL:=en_US.UTF-8}"
+[[ -d "/output/pkg_cache" ]] && CREW_CACHE_DIR=/output/pkg_cache
+[[ -n "\\\$CREW_CACHE_DIR" ]] && CREW_CACHE_ENABLED=1
+LESS='-F -i -J -M -R -W -x4 -X -z-4'
+set +a
+TEEBASHRCEOF
+chown chronos:chronos /home/chronos/user/.bashrc
+tee -a /bin/chromebrewstart <<CHROMEBREWSTARTEOF
+#!/bin/bash
+# Chromebrew container startup script.
+# Author: Satadru Pramanik (satmandu) satadru at gmail dot com
+CONTAINER_ARCH="\\\$(file /bin/bash | awk '{print \\\$7}' | sed 's/,//g')"
+PASSTHROUGH_ARCH=\\\$(uname -m)
+echo "CONTAINER_ARCH: \\\$CONTAINER_ARCH"
+echo "PASSTHROUGH_ARCH: \\\$PASSTHROUGH_ARCH"
+default_container_cmd="/usr/bin/sudo -i -u chronos /bin/bash -i"
+
+case \\\$CONTAINER_ARCH in
+
+  x86-64)
+    exec \\\$default_container_cmd
+    ;;
+
+  Intel)
+    SETARCH_ARCH=i686
+    setarch_container_cmd="/usr/local/bin/setarch \\\${SETARCH_ARCH} sudo -i -u chronos /bin/bash -i"
+    [[ "\\\${PASSTHROUGH_ARCH}" == "i686" ]] && exec \\\$default_container_cmd
+    [[ "\\\${PASSTHROUGH_ARCH}" == "x86_64" ]] && exec \\\$setarch_container_cmd
+    ;;
+
+  ARM)
+    SETARCH_ARCH=armv7l
+    setarch_container_cmd="/usr/local/bin/setarch \\\${SETARCH_ARCH} sudo -i -u chronos /bin/bash -i"
+    [[ "\\\${PASSTHROUGH_ARCH}" =~ ^(armv7l|armv8l)$ ]] && exec \\\$default_container_cmd
+    [[ "\\\${PASSTHROUGH_ARCH}" == 'aarch64' ]] && exec \\\$setarch_container_cmd
+    ;;
+
+  *)
+    echo "Fallthrough option."
+    exec /bin/bash
+    ;;
+esac
+CHROMEBREWSTARTEOF
+chmod +x /bin/chromebrewstart
+if [[ -f /input/install.sh.test ]]; then
+  cp /input/install.sh.test /home/chronos/user/install.sh
+  echo "Using local installer script install.sh.test!"
+else
+  curl -Ls https://github.com/\$OWNER/\$REPO/raw/\$BRANCH/install.sh -o /home/chronos/user/install.sh
+fi 
+chown chronos /home/chronos/user/install.sh
+chmod +x /home/chronos/user/install.sh
+EOF1
+# crew_profile_base isn't getting postinstall run on i686
+SHELL ["/usr/bin/sudo", "-E", "-n", "BASH_ENV=/home/chronos/user/.bashrc", "-u", "chronos", "/bin/bash", "-c"]
+RUN --mount=type=bind,target=/input <<EOF2
+PATH=/usr/local/bin:/usr/local/sbin:\$PATH \
+  CREW_CACHE_DIR=/input/pkg_cache \
+  CREW_CACHE_ENABLED=1 \
+  OWNER=\$OWNER \
+  BRANCH=\$BRANCH \
+  CREW_FORCE_INSTALL=1 \
+  CREW_KERNEL_VERSION=\$CREW_KERNEL_VERSION \
+  /bin/bash /home/chronos/user/install.sh
+cd /usr/local/lib/crew/packages
+comm -13 <(cat ../tools/core_packages.txt| sort) <(crew -d list installed| sort)
+LD_LIBRARY_PATH=$CREW_LIB_PREFIX:\$LD_LIBRARY_PATH \
+  crew postinstall crew_profile_base
+yes | LD_LIBRARY_PATH=$CREW_LIB_PREFIX:\$LD_LIBRARY_PATH \
+  crew install util_linux psmisc
+EOF2
+# We can use setarch now that util_linux is installed.
+SHELL ["/usr/bin/sudo", "-E", "-n", "BASH_ENV=/home/chronos/user/.bashrc", "-u", "chronos", "setarch", "$SETARCH_ARCH", "/bin/bash", "-o", "pipefail", "-c"]
+RUN --mount=type=bind,target=/input <<EOF3
+yes | \
+  LD_LIBRARY_PATH=$CREW_LIB_PREFIX:\$LD_LIBRARY_PATH \
+  PATH=/usr/local/bin:/usr/local/sbin:\$PATH \
+  CREW_CACHE_DIR=/input/pkg_cache \
+  CREW_CACHE_ENABLED=1 \
+  crew install buildessential || true
+  echo -e "\ncd /usr/local/lib/crew/packages\ncrew update" >> /home/chronos/user/.bashrc
+EOF3
+CMD /bin/chromebrewstart
+EOFFFF
+}
+build_docker_image_with_docker_hub () {
+  docker ps
+  echo "Tag & Push starting in ..." && countdown "00:00:01"
+  if ! docker pull ${REPOSITORY}/crewbase:"${name}"-${ARCH}.m"${milestone}" ; then 
+  docker tag ${REPOSITORY}/crewbase:"${name}"-${ARCH}.m"${milestone}" ${REPOSITORY}/crewbase:${DOCKER_PLATFORM}
+  docker push ${REPOSITORY}/crewbase:"${name}"-${ARCH}.m"${milestone}"
+fi
+}
+make_cache_links () {
+  mkdir -p ./${ARCH}/pkg_cache
+  for i in $(cd pkg_cache && ls ./*${ARCH}*.*xz) 
+  do
+  ln -f pkg_cache/"$i" ./${ARCH}/pkg_cache/"$i" 2>/dev/null || ( [[ ! -f ./${ARCH}/pkg_cache/$i ]] && cp pkg_cache/"$i" ./${ARCH}/pkg_cache/"$i" )
+  done
+}
+build_docker_image () {
+  docker image ls
+  dangling_images=$(docker images --filter "dangling=true" -q --no-trunc)
+  [[ -n "$dangling_images" ]] && docker rmi -f $(docker images --filter "dangling=true" -q --no-trunc)
+  docker pull tonistiigi/binfmt
+  docker run --privileged --rm tonistiigi/binfmt --uninstall qemu-*
+  docker run --privileged --rm tonistiigi/binfmt --install all
+  docker buildx rm builder
+  docker buildx create --name builder --driver docker-container --use --driver-opt env.BUILDKIT_STEP_LOG_MAX_SIZE=10485760
+  docker buildx inspect --bootstrap
+  buildx_cmd="env PROGRESS_NO_TRUNC=1 docker buildx build \
+  --no-cache \
+  --push --platform ${PLATFORM} \
+  --tag ${REPOSITORY}/crewbuild:${name}-${ARCH}.m${milestone} \
+  --tag ${REPOSITORY}/crewbuild:m${milestone}-${ARCH} \
+  --tag ${REPOSITORY}/crewbuild:${DOCKER_PLATFORM} \
+  ./${ARCH}/"
+  echo "$buildx_cmd"
+  $buildx_cmd  || echo "Docker Build Error."
+}
+make_docker_image_script () {
+  dockercmd="docker run --platform ${PLATFORM} --rm -v \$(pwd)/pkg_cache:/usr/local/tmp/packages -v \$(pwd):/output -h \$(hostname)-${ARCH} -it ${REPOSITORY}/crewbuild:${name}-${ARCH}.m${milestone}"
+  [[ -f $(abspath "${outdir}")/crewbuild-${name}-${ARCH}.m${milestone}.sh ]] && rm $(abspath "${outdir}")/crewbuild-"${name}"-${ARCH}.m"${milestone}".sh
+  echo -e "#!/bin/bash\ndocker pull ${REPOSITORY}/crewbuild:${name}-${ARCH}.m${milestone}\ndocker pull tonistiigi/binfmt\ndocker run --privileged --rm tonistiigi/binfmt --install all\n$dockercmd" >  $(abspath "${outdir}")/crewbuild-"${name}"-${ARCH}.m"${milestone}".sh && chmod +x $(abspath "${outdir}")/crewbuild-"${name}"-${ARCH}.m"${milestone}".sh
+    }
+enter_docker_image () {
+  echo "Running \"$dockercmd\" from \"$(abspath "${outdir}")/crewbuild-${name}-${ARCH}.m${milestone}.sh\""
+  echo "Entering in..." && countdown "00:00:30"
+  exec "$(abspath "${outdir}")/crewbuild-${name}-${ARCH}.m${milestone}.sh"
+}
+main () {
+  get_arch
+  mkdir "${outdir}"/{autobuild,built,packages,preinstall,postinstall,src_cache,tmp,${ARCH}} &> /dev/null
+  import_to_Docker
+  ## This enables ipv6 for docker container
+  #if ! docker container ls | grep ipv6nat  ; then
+    #docker run -d --name ipv6nat --privileged --network host --restart unless-stopped -v /var/run/docker.sock:/var/run/docker.sock:ro -v /lib/modules:/lib/modules:ro robbertkl/ipv6nat
+  #fi
+  rm crewbuild-${name}-${ARCH}.m${milestone}-build.log
+  echo "build being logged to crewbuild-${name}-${ARCH}.m${milestone}-build.log"
+  build_dockerfile 2>&1 | tee -a crewbuild-${name}-${ARCH}.m${milestone}-build.log
+  build_docker_image_with_docker_hub 2>&1 | tee -a crewbuild-${name}-${ARCH}.m${milestone}-build.log
+  make_cache_links 2>&1 |tee -a crewbuild-${name}-${ARCH}.m${milestone}-build.log
+  build_docker_image 2>&1 | tee -a crewbuild-${name}-${ARCH}.m${milestone}-build.log
+  make_docker_image_script 2>&1 | tee -a crewbuild-${name}-${ARCH}.m${milestone}-build.log
+  [[ -z "$JUST_BUILD" ]] && enter_docker_image
+}
+main
