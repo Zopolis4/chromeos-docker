@@ -165,6 +165,7 @@ set +a
 TEEPROFILEEOF
 chown chronos:chronos /home/chronos/user/.profile
 tee -a /home/chronos/user/.bashrc <<TEEBASHRCEOF
+echo "This is the .bashrc"
 set -a
 QEMU_CPU=max
 CFLAGS="-march=$MARCH"
@@ -250,7 +251,7 @@ yes | \
   CREW_CACHE_DIR=/input/pkg_cache \
   CREW_CACHE_ENABLED=1 \
   crew install buildessential || true
-  echo -e "\ncd /usr/local/lib/crew/packages\ncrew update" >> /home/chronos/user/.bash_profile
+  echo -e "\necho \"This is the .bash_profile\"\nsource ~/.bashrc\ncd /usr/local/lib/crew/packages\ncrew update" >> /home/chronos/user/.bash_profile
 EOF3
 CMD /bin/chromebrewstart
 EOFFFF
@@ -291,9 +292,9 @@ build_docker_image () {
   $buildx_cmd  || echo "Docker Build Error."
 }
 make_docker_image_script () {
-  dockercmd="docker run --platform ${PLATFORM} --rm -v \$(pwd)/pkg_cache:/usr/local/tmp/packages -v \$(pwd):/output -h \$(hostname)-${ARCH} -it ${REPOSITORY}/crewbuild:${name}-${ARCH}.m${milestone}"
+  dockercmd="docker run --platform ${PLATFORM} --rm -e DISPLAY=\${DISPLAY} --net=host --volume=\"\$HOME/.Xauthority:/home/chronos/user/.Xauthority:rw\" --volume=\"\$HOME/.Xauthority:/home/chronos/.Xauthority:rw\" -v \$(pwd)/pkg_cache:/usr/local/tmp/packages -v \$(pwd):/output -h \$(hostname)-${ARCH} -it ${REPOSITORY}/crewbuild:${name}-${ARCH}.m${milestone}"
   [[ -f $(abspath "${outdir}")/crewbuild-${name}-${ARCH}.m${milestone}.sh ]] && rm $(abspath "${outdir}")/crewbuild-"${name}"-"${ARCH}".m"${milestone}".sh
-  echo -e "#!/bin/bash\ndocker pull ${REPOSITORY}/crewbuild:${name}-${ARCH}.m${milestone}\ndocker pull tonistiigi/binfmt\ndocker run --privileged --rm tonistiigi/binfmt --install all\n$dockercmd" >  $(abspath "${outdir}")/crewbuild-"${name}"-"${ARCH}".m"${milestone}".sh && chmod +x $(abspath "${outdir}")/crewbuild-"${name}"-"${ARCH}".m"${milestone}".sh
+  echo -e "#!/bin/bash\ndocker pull --platform ${PLATFORM} ${REPOSITORY}/crewbuild:${name}-${ARCH}.m${milestone}\ndocker pull tonistiigi/binfmt\ndocker run --privileged --rm tonistiigi/binfmt --install all\n$dockercmd" >  $(abspath "${outdir}")/crewbuild-"${name}"-"${ARCH}".m"${milestone}".sh && chmod +x $(abspath "${outdir}")/crewbuild-"${name}"-"${ARCH}".m"${milestone}".sh
     }
 enter_docker_image () {
   echo "Running \"$dockercmd\" from \"$(abspath "${outdir}")/crewbuild-${name}-${ARCH}.m${milestone}.sh\""
