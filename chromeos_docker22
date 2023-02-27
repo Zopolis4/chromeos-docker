@@ -156,6 +156,9 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN --mount=type=bind,target=/input <<EOF1
 passwd -d chronos
 echo "chronos ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+# Create /var/run/chrome - this is used by some X11 apps.
+mkdir -p /var/run/chrome
+chown chronos:chronos /var/run/chrome
 tee -a /home/chronos/user/.profile <<TEEPROFILEEOF
 set -a
 CREW_TESTING_REPO=https://github.com/chromebrew/chromebrew.git
@@ -292,9 +295,37 @@ build_docker_image () {
   $buildx_cmd  || echo "Docker Build Error."
 }
 make_docker_image_script () {
-  dockercmd="docker run --platform ${PLATFORM} --rm -e DISPLAY=\${DISPLAY} --net=host --volume=\"\$HOME/.Xauthority:/home/chronos/user/.Xauthority:rw\" --volume=\"\$HOME/.Xauthority:/home/chronos/.Xauthority:rw\" -v \$(pwd)/pkg_cache:/usr/local/tmp/packages -v \$(pwd):/output -h \$(hostname)-${ARCH} -it ${REPOSITORY}/crewbuild:${name}-${ARCH}.m${milestone}"
+  dockercmd="docker run --platform ${PLATFORM} --rm --net=host \${X11}  -v \$(pwd)/pkg_cache:/usr/local/tmp/packages -v \$(pwd):/output -h \$(hostname)-${ARCH} -it ${REPOSITORY}/crewbuild:${name}-${ARCH}.m${milestone}"
   [[ -f $(abspath "${outdir}")/crewbuild-${name}-${ARCH}.m${milestone}.sh ]] && rm $(abspath "${outdir}")/crewbuild-"${name}"-"${ARCH}".m"${milestone}".sh
-  echo -e "#!/bin/bash\ndocker pull --platform ${PLATFORM} ${REPOSITORY}/crewbuild:${name}-${ARCH}.m${milestone}\ndocker pull tonistiigi/binfmt\ndocker run --privileged --rm tonistiigi/binfmt --install all\n$dockercmd" >  $(abspath "${outdir}")/crewbuild-"${name}"-"${ARCH}".m"${milestone}".sh && chmod +x $(abspath "${outdir}")/crewbuild-"${name}"-"${ARCH}".m"${milestone}".sh
+  cat <<IMAGESCRIPTEOF > $(abspath "${outdir}")/crewbuild-"${name}"-"${ARCH}".m"${milestone}".sh
+#!/bin/bash
+if [ -n "\$SSH_CLIENT" ] || [ -n "\$SSH_TTY" ]; then
+  SESSION_TYPE=remote/ssh
+elif pstree -p | egrep --quiet --extended-regexp ".*sshd.*\(\$\$\)"; then
+  SESSION_TYPE=remote/ssh
+else
+  case \$(ps -o comm= -p \$PPID) in
+    sshd|*/sshd) SESSION_TYPE=remote/ssh;;
+  esac
+fi
+X11=-e
+X11+=" "
+X11+=DISPLAY=\${DISPLAY:-:0.0}
+X11+=" "
+if ! [[ \$SESSION_TYPE == remote/ssh ]] && [ -d /tmp/.X11-unix ]; then
+  X11+=" -v /tmp/.X11-unix:/tmp/.X11-unix "
+fi
+if [ -f "\$HOME"/.Xauthority ]; then
+  X11+=--volume=\$HOME/.Xauthority:/home/chronos/user/.Xauthority:rw
+  X11+=" "
+  X11+=--volume=\$HOME/.Xauthority:/home/chronos/.Xauthority:rw
+fi
+docker pull --platform ${PLATFORM} ${REPOSITORY}/crewbuild:${name}-${ARCH}.m${milestone}
+docker pull tonistiigi/binfmt
+docker run --privileged --rm tonistiigi/binfmt --install all
+$dockercmd
+IMAGESCRIPTEOF
+  chmod +x $(abspath "${outdir}")/crewbuild-"${name}"-"${ARCH}".m"${milestone}".sh
     }
 enter_docker_image () {
   echo "Running \"$dockercmd\" from \"$(abspath "${outdir}")/crewbuild-${name}-${ARCH}.m${milestone}.sh\""
