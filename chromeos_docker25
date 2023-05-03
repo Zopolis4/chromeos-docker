@@ -177,7 +177,6 @@ CFLAGS="-march=$MARCH"
 : "\\\${LC_ALL:=en_US.UTF-8}"
 [[ -d "/output/pkg_cache" ]] && CREW_CACHE_DIR=/output/pkg_cache
 [[ -n "\\\$CREW_CACHE_DIR" ]] && CREW_CACHE_ENABLED=1
-LESS='-F -i -J -M -R -W -x4 -X -z-4'
 set +a
 TEEBASHRCEOF
 chown chronos:chronos /home/chronos/user/.bashrc
