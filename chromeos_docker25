@@ -256,6 +256,17 @@ yes | \
   CREW_CACHE_ENABLED=1 \
   crew install buildessential || true
   echo -e "\necho \"This is the .bash_profile\"\n#Without this, env.d files do not get sourced.\nif [ -f ~/.bashrc ]; then . ~/.bashrc; fi\ncd /usr/local/lib/crew/packages\ncrew update\nif [ -n \"\\\$LOCALRC\" ]; then echo \"LOCALRC found!\"; . \"\\\$LOCALRC\"; fi" >> /home/chronos/user/.bash_profile
+  if gem list -i "^rubocop\$" ; then
+  echo 'Running gem update -N --system'
+    gem update -N --system
+  else
+    echo 'Running  gem install -N rubocop --conservative'
+    gem install -N rubocop --conservative
+  fi
+  if ! gem list -i "^concurrent-ruby\$" ; then
+    echo 'Running gem install -N concurrent-ruby --conservative'
+    gem install -N concurrent-ruby --conservative
+  fi
 EOF3
 CMD /bin/chromebrewstart
 EOFFFF
@@ -296,7 +307,7 @@ build_docker_image () {
   $buildx_cmd  || echo "Docker Build Error."
 }
 make_docker_image_script () {
-  dockercmd="docker run --platform ${PLATFORM} --rm --net=host \${X11} -e LOCALRC=\"\${LOCALRC}\" -v \$(pwd)/pkg_cache:/usr/local/tmp/packages -v \$(pwd):/output -h \$(hostname)-${ARCH} -it ${REPOSITORY}/crewbuild:${name}-${ARCH}.m${milestone}"
+  dockercmd="docker run --platform ${PLATFORM} --rm --net=host \${PAGER_PASSTHROUGH} \${X11} -e LOCALRC=\"\${LOCALRC}\" -v \$(pwd)/pkg_cache:/usr/local/tmp/packages -v \$(pwd):/output -h \$(hostname)-${ARCH} -it ${REPOSITORY}/crewbuild:${name}-${ARCH}.m${milestone}"
   [[ -f $(abspath "${outdir}")/crewbuild-${name}-${ARCH}.m${milestone}.sh ]] && rm $(abspath "${outdir}")/crewbuild-"${name}"-"${ARCH}".m"${milestone}".sh
   cat <<IMAGESCRIPTEOF > $(abspath "${outdir}")/crewbuild-"${name}"-"${ARCH}".m"${milestone}".sh
 #!/bin/bash
@@ -309,6 +320,14 @@ else
     sshd|*/sshd) SESSION_TYPE=remote/ssh;;
   esac
 fi
+if [ -z \${PAGER+x} ]; then 
+  echo "PAGER is not set."
+else 
+  PAGER_PASSTHROUGH=-e
+  PAGER_PASSTHROUGH+=" "
+  PAGER_PASSTHROUGH+=CONTAINER_PAGER=\${PAGER}
+fi
+X11+=" "
 X11=-e
 X11+=" "
 X11+=DISPLAY=\${DISPLAY:-:0.0}
