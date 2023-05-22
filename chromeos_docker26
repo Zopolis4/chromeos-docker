@@ -92,7 +92,7 @@ get_arch () {
     MARCH=x86-64
     PLATFORM="linux/amd64"
     SETARCH_ARCH=x86_64
-    CREW_KERNEL_VERSION=4.14
+    CREW_KERNEL_VERSION=5.10
   elif [[ "$chromeos_arch" == "ARM" ]]; then
     ARCH=armv7l
     ARCH_LIB=lib
@@ -102,7 +102,7 @@ get_arch () {
     MARCH=armv7-a
     PLATFORM="linux/arm/v7"
     SETARCH_ARCH=armv7l
-    CREW_KERNEL_VERSION=4.14
+    CREW_KERNEL_VERSION=5.10
   elif [[ "$chromeos_arch" == "Intel" ]]; then
     ARCH=i686
     ARCH_LIB=lib
