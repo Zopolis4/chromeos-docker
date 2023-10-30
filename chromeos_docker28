@@ -224,6 +224,7 @@ if [[ -f /input/install.sh.test ]]; then
 else
   curl -Ls https://github.com/\$OWNER/\$REPO/raw/\$BRANCH/install.sh -o /home/chronos/user/install.sh
 fi 
+chown chronos /usr/local
 chown chronos /home/chronos/user/install.sh
 chmod +x /home/chronos/user/install.sh
 EOF1
@@ -239,6 +240,8 @@ PATH=/usr/local/bin:/usr/local/sbin:\$PATH \
   CREW_KERNEL_VERSION=\$CREW_KERNEL_VERSION \
   /bin/bash /home/chronos/user/install.sh
 cd /usr/local/lib/crew/packages
+echo "Disk Space used by initial install:"
+du -ahx /usr/local | tail
 echo "Packages installed but not in core_packages.txt:"
 comm -13 <(cat ../tools/core_packages.txt| sort) <(crew -d list installed| sort)
 LD_LIBRARY_PATH=$CREW_LIB_PREFIX:\$LD_LIBRARY_PATH \
