@@ -1,4 +1,6 @@
 #!/bin/bash
+# Copyright 2021-2023 Satadru Pramanik
+# SPDX-License-Identifier: GPL-3.0-or-later
 # chromeos_docker.sh
 # Usage:
 # REPOSITORY=YOUR_DOCKER_HUB_REPOSITORY_NAME chromeos_docker.sh recovery_file_url container_name chromeos_milestone arch
