@@ -18,7 +18,7 @@ jobs:
             git config --global user.name 'github-actions[bot]'
             git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
             git config --global credential.helper store
-            echo 'https://token:${{ secrets.GITHUB_TOKEN }}@github.com' > .git-credentials
+            echo 'https://token:${{ secrets.GITHUB_TOKEN }}@github.com' > ~/.git-credentials
       - name: Generate boards.json
         run: ruby .github/boards.rb
       - name: Commit and push updated boards.json
