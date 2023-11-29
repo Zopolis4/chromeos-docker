@@ -4,7 +4,7 @@
     "Kernel ABI": "x86_64",
     "Kernel Version": "5.15",
     "Recovery Images": {
-      "109": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15236.80.0_brya_recovery_stable-channel_mp-v9.bin.zip",
+      "109": "https://dl.googdgedl/chromeos/recovery/chromeos_15236.80.0_brya_recovery_stable-channel_mp-v9.bin.zip",
       "110": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15278.72.0_brya_recovery_stable-channel_mp-v9.bin.zip",
       "111": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15329.44.2_brya_recovery_stable-channel_mp-v9.bin.zip",
       "112": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15359.58.2_brya_recovery_stable-channel_mp-v11.bin.zip",
