@@ -1,22 +1,17 @@
 #!/bin/bash
 # Copyright 2021-2023 Satadru Pramanik
+# Copyright 2023 Maximilian Downey Twiss
 # SPDX-License-Identifier: GPL-3.0-or-later
-imageurl="${1}"
-name="${2}"
-milestone="${3}"
-ARCH="${4}"
+name="${1}"
+milestone="${2}"
 : "${outdir:=$(pwd)}"
 : "${REPOSITORY:=satmandu}"
 : "${PKG_CACHE:=$outdir/pkg_cache}"
-echo "  image url:${imageurl}"
 echo "       name: ${name}"
 echo "  milestone: ${milestone}"
-echo "       ARCH: ${ARCH}"
 echo " REPOSITORY: ${REPOSITORY}"
 echo "output root: ${outdir}"
 echo "  PKG_CACHE: ${PKG_CACHE}"
-
-tmpdir=$(mktemp -d docker_XXXX -p "$(pwd)")
 
 function abspath {
   echo $(cd "$1" && pwd)
@@ -36,71 +31,59 @@ countdown()
   echo
 )
 
-get_arch () {
-  if [[ ! -f "$ARCH/${name}.image.bin.${milestone}.zip" ]] ; then
-    echo "$ARCH/${name}.image.bin.${milestone}.zip not found" 
-    mkdir -p "$ARCH"
-    curl --retry 3 -Lf "$imageurl" -o "$ARCH"/"${name}".image.bin."${milestone}".zip || ( echo "Download failed" && kill $$ )
-  fi
-  mkdir -p "${tmpdir}"_zip
+setup_base () {
+  url="$(jq -r .\""${name}"\"[\""Recovery Images"\"][\""${milestone}"\"] boards.json)"
+  cached_image="$(echo ${url} | sed "s/https:\/\/dl.google.com\/dl\/edgedl\/chromeos\/recovery\/chromeos_//" | sed 's/_r.*//')"
+  if [[ ! -f "${cached_image}.tar" ]] ; then
+    echo "Cached image not found for ${cached_image}"
 
-    unzip -p "$ARCH"/"${name}".image.bin."${milestone}".zip > "${tmpdir}"_zip/"${name}".image.bin."${milestone}"
-    milestone_image="${tmpdir}_zip/${name}.image.bin.${milestone}"
-  sudo kpartx -d "$milestone_image"
-  rootpart=$(sudo kpartx -v -a "$milestone_image" | grep 'p3\b' | awk '{print $3}')
-  if [[ -n $rootpart ]]; then 
-    sudo umount /dev/mapper/"$rootpart" || true
-    echo "sudo mount -o ro -t ext4 /dev/mapper/$rootpart $tmpdir"
-    sudo mount -o ro -t ext4 /dev/mapper/"$rootpart" "$tmpdir"
+    # Download image
+    curl --progress-bar --retry 3 -Lf "${url}" -o "${cached_image}".zip || ( echo "Download failed" && kill $$ )
+
+    # Extract image
+
+    # Extract the various layers of archives until we get to the root filesystem
+    # 7zip does not currently support extracting nested archives in one command, or extracting from stdin
+    7z x "${cached_image}".zip -so > "${cached_image}".bin
+    7z x "${cached_image}".bin 2.ROOT-A.img
+    7z x -snld 2.ROOT-A.img -o"${cached_image}"
+
+    # Tar the unpacked filesystem for importing into docker
+    (cd "${cached_image}" && tar -pcf ../"${cached_image}".tar .)
+
+    # Clean up after ourselves
+    rm -f "${cached_image}".zip "${cached_image}".bin 2.ROOT-A.img
+    rm -rf "${cached_image}"
   else
-    rootpart=$(losetup | grep "$milestone_image" | awk '{print $1}')
-    [[ -n $rootpart ]] && sudo mount -o ro -t ext4 "$rootpart" "$tmpdir"
+    echo "Cached image found for ${cached_image}, skipping download."
   fi
-  [[ -z "$rootpart" ]] && (echo "The downloaded recovery in ${name}.image.bin.${milestone}.zip doesn't look right." && kill $$)
-  chromeos_arch=$(file "$tmpdir"/bin/bash | awk '{print $7}' | sed 's/,//g')
-  echo "chromeos_arch is $chromeos_arch"
-  if [[ "$chromeos_arch" == "x86-64" ]]; then
+}
+
+get_arch () {
+  user_arch="$(jq -r ."${name}"[\""User ABI"\"] boards.json)"
+  if [[ "$user_arch" == "x86_64" ]]; then
     ARCH_LIB=lib64
     ARCH=x86_64
-    CREW_PREFIX=/usr/local
-    CREW_LIB_PREFIX=$CREW_PREFIX/$ARCH_LIB
     DOCKER_PLATFORM=amd64
-    MARCH=x86-64
     PLATFORM="linux/amd64"
-    SETARCH_ARCH=x86_64
-    CREW_KERNEL_VERSION=5.10
-  elif [[ "$chromeos_arch" == "ARM" ]]; then
+  elif [[ "$user_arch" == "arm" ]]; then
     ARCH=armv7l
     ARCH_LIB=lib
-    CREW_PREFIX=/usr/local
-    CREW_LIB_PREFIX=$CREW_PREFIX/$ARCH_LIB
     DOCKER_PLATFORM=arm32v7
-    MARCH=armv7-a
     PLATFORM="linux/arm/v7"
-    SETARCH_ARCH=armv7l
-    CREW_KERNEL_VERSION=5.10
-  elif [[ "$chromeos_arch" == "Intel" ]]; then
+  elif [[ "$user_arch" == "x86" ]]; then
     ARCH=i686
     ARCH_LIB=lib
-    CREW_PREFIX=/usr/local
-    CREW_LIB_PREFIX=$CREW_PREFIX/$ARCH_LIB
     DOCKER_PLATFORM=386
-    MARCH=i686
     PLATFORM="linux/386"
-    SETARCH_ARCH=i686
-    CREW_KERNEL_VERSION=3.8
-  elif [[ "$chromeos_arch" == "file" ]]; then
-    echo "Error in determining image architecture."
-    exit 1
   fi
+  CREW_KERNEL_VERSION="$(jq -r ."${name}"[\""Kernel Version"\"] boards.json)"
+  CREW_LIB_PREFIX=/usr/local/$ARCH_LIB
 }
 import_to_Docker () {
   if ! docker image ls | grep "${REPOSITORY}"/crewbase:"${name}"-"${ARCH}".m"${milestone}" ; then
-    (cd "$tmpdir" && sudo tar -c . | docker import --platform "${PLATFORM}" - "${REPOSITORY}"/crewbase:"${name}"-"${ARCH}".m"${milestone}")
+    docker import "${cached_image}".tar --platform "${PLATFORM}" "${REPOSITORY}"/crewbase:"${name}"-"${ARCH}".m"${milestone}"
   fi
-  sudo umount "$tmpdir"
-  rm -rf "$tmpdir"
-  rm -rf "${tmpdir}_zip"
 }
 build_dockerfile () {
   cd "${outdir}" || exit
@@ -148,7 +131,6 @@ tee -a /home/chronos/user/.bashrc <<TEEBASHRCEOF
 echo "This is the .bashrc"
 set -a
 QEMU_CPU=max
-CFLAGS="-march=$MARCH"
 : "\\\${LANG:=en_US.UTF-8}"
 : "\\\${LC_ALL:=en_US.UTF-8}"
 [[ -d "/output/pkg_cache" ]] && CREW_CACHE_DIR=/output/pkg_cache
@@ -226,7 +208,7 @@ yes | LD_LIBRARY_PATH=$CREW_LIB_PREFIX:\$LD_LIBRARY_PATH \
   crew install util_linux psmisc
 EOF2
 # We can use setarch now that util_linux is installed.
-SHELL ["/usr/bin/sudo", "-E", "-n", "BASH_ENV=/home/chronos/user/.bashrc", "-u", "chronos", "setarch", "$SETARCH_ARCH", "/bin/bash", "-o", "pipefail", "-c"]
+SHELL ["/usr/bin/sudo", "-E", "-n", "BASH_ENV=/home/chronos/user/.bashrc", "-u", "chronos", "setarch", "$ARCH", "/bin/bash", "-o", "pipefail", "-c"]
 RUN --mount=type=bind,target=/input <<EOF3
 yes | \
   LD_LIBRARY_PATH=$CREW_LIB_PREFIX:\$LD_LIBRARY_PATH \
@@ -332,6 +314,7 @@ enter_docker_image () {
   exec "$(abspath "${outdir}")/crewbuild-${name}-${ARCH}.m${milestone}.sh"
 }
 main () {
+  setup_base
   get_arch
   mkdir "${outdir}"/{autobuild,built,packages,preinstall,postinstall,src_cache,tmp,"${ARCH}"} &> /dev/null
   import_to_Docker
