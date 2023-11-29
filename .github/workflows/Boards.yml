@@ -1,0 +1,24 @@
+name: Generate boards.json
+on:
+  schedule:
+    - cron: '0 0 * * 0'  # Every week
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1'
+      - name: Install dependencies
+        run: gem install nokogiri
+      - name: Configure git
+        run: |
+            git config --global user.name 'github-actions[bot]'
+            git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
+      - name: Generate boards.json
+        run: ruby .github/boards.rb
+      - name: Commit and push updated boards.json
+        run: |
+            git commit -o boards.json -m "Update boards.json" || true
+            git push
