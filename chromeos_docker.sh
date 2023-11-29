@@ -15,20 +15,6 @@ echo "  PKG_CACHE: ${PKG_CACHE}"
 function abspath {
   echo $(cd "$1" && pwd)
 }
-countdown()
-(
-  IFS=:
-  set -- $*
-  secs=$(( ${1#0} * 3600 + ${2#0} * 60 + ${3#0} ))
-  while [ $secs -gt 0 ]
-  do
-    sleep 1 &
-    printf "\r%02d:%02d:%02d" $((secs/3600)) $(( (secs/60)%60)) $((secs%60))
-    secs=$(( $secs - 1 ))
-    wait
-  done
-  echo
-)
 
 setup_base () {
   url="$(jq -r .\""${name}"\"[\""Recovery Images"\"][\""${milestone}"\"] boards.json)"
@@ -93,7 +79,6 @@ build_dockerfile () {
 }
 build_docker_image_with_docker_hub () {
   docker ps
-  echo "Tag & Push starting in ..." && countdown "00:00:01"
   if ! docker pull "${REPOSITORY}"/crewbase:"${name}"-"${ARCH}".m"${milestone}" ; then 
   docker tag "${REPOSITORY}"/crewbase:"${name}"-"${ARCH}".m"${milestone}" "${REPOSITORY}"/crewbase:"${DOCKER_PLATFORM}"
   docker push "${REPOSITORY}"/crewbase:"${name}"-"${ARCH}".m"${milestone}"
