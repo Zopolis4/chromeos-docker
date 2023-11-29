@@ -1,12 +1,6 @@
 # chromeos-docker
 Create ChromeOS docker images
 
-## Dependencies:
-On apt-based systems:
-```
-apt install kpartx
-```
-
 ## Usage:
 Several components of this script require root access.
 
@@ -31,19 +25,14 @@ sudo apt install -y uidmap golang
 
 x86_64:
 ```
-./chromeos_docker.sh https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_13816.82.0_nocturne_recovery_stable-channel_mp.bin.zip nocturne 90 x86_64
+./chromeos_docker.sh nocturne 90
 ```
 
 armv7l:
 ```
-./chromeos_docker.sh https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_13904.55.0_veyron-fievel_recovery_stable-channel_fievel-mp.bin.zip fievel 91 armv7l
+./chromeos_docker.sh veyron-fievel 91
 ```
 i686:
 ```
-./chromeos_docker.sh https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_9334.72.0_x86-alex-he_recovery_stable-channel_alex-mp-v4.bin.zip alex 58 i686
-./chromeos_docker.sh https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_9334.72.0_x86-zgb-he_recovery_stable-channel_zgb-mp-v3.bin.zip zgb 58 i686
-```
-ChromeOS Flex:
-```
-./chromeos_docker https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15054.115.0_reven_recovery_stable-channel_mp-v2.bin.zip reven 106 x86_64
+./chromeos_docker.sh x86-alex-he 58
 ```

@@ -1,22 +1,18 @@
 #!/bin/bash
 # Copyright 2021-2023 Satadru Pramanik
 # SPDX-License-Identifier: GPL-3.0-or-later
-imageurl="${1}"
-name="${2}"
-milestone="${3}"
-ARCH="${4}"
+name="${1}"
+milestone="${2}"
 : "${outdir:=$(pwd)}"
 : "${REPOSITORY:=satmandu}"
 : "${PKG_CACHE:=$outdir/pkg_cache}"
-echo "  image url:${imageurl}"
 echo "       name: ${name}"
 echo "  milestone: ${milestone}"
-echo "       ARCH: ${ARCH}"
 echo " REPOSITORY: ${REPOSITORY}"
 echo "output root: ${outdir}"
 echo "  PKG_CACHE: ${PKG_CACHE}"
 
-tmpdir=$(mktemp -d docker_XXXX -p "$(pwd)")
+#tmpdir=$(mktemp -d docker_XXXX -p "$(pwd)")
 
 function abspath {
   echo $(cd "$1" && pwd)
@@ -36,29 +32,54 @@ countdown()
   echo
 )
 
-get_arch () {
-  if [[ ! -f "$ARCH/${name}.image.bin.${milestone}.zip" ]] ; then
-    echo "$ARCH/${name}.image.bin.${milestone}.zip not found" 
-    mkdir -p "$ARCH"
-    curl --retry 3 -Lf "$imageurl" -o "$ARCH"/"${name}".image.bin."${milestone}".zip || ( echo "Download failed" && kill $$ )
-  fi
-  mkdir -p "${tmpdir}"_zip
+# get the url you're looking for just telling the script the board and release milestone you want
+# ok so it looks like the first url has everything we need for like reasonable usages
+# but there are images on chrome100.dev that arent present in any of the nice things (they show up in like old recovery.conf dumps)
+# those ones were probably bruteforced
 
-    unzip -p "$ARCH"/"${name}".image.bin."${milestone}".zip > "${tmpdir}"_zip/"${name}".image.bin."${milestone}"
-    milestone_image="${tmpdir}_zip/${name}.image.bin.${milestone}"
-  sudo kpartx -d "$milestone_image"
-  rootpart=$(sudo kpartx -v -a "$milestone_image" | grep 'p3\b' | awk '{print $3}')
-  if [[ -n $rootpart ]]; then 
-    sudo umount /dev/mapper/"$rootpart" || true
-    echo "sudo mount -o ro -t ext4 /dev/mapper/$rootpart $tmpdir"
-    sudo mount -o ro -t ext4 /dev/mapper/"$rootpart" "$tmpdir"
-  else
-    rootpart=$(losetup | grep "$milestone_image" | awk '{print $1}')
-    [[ -n $rootpart ]] && sudo mount -o ro -t ext4 "$rootpart" "$tmpdir"
+# https://github.com/skylartaylor/cros-updates/blob/master/src/data/cros-updates.json
+# https://cros.tech/
+# https://www.chromiumdash.appspot.com/serving-builds?deviceCategory=ChromeOS
+# https://chrome100.dev/board/zako/
+# https://jay0lee.github.io/chromeos-update-directory/
+# https://github.com/jay0lee/chromeos-update-directory
+# https://github.com/e9x/chrome-versions/wiki/Chrome-OS---Bruteforce-Recovery-Images
+
+
+setup_base () {
+  url="$(curl -s https://chromiumdash.appspot.com/cros/fetch_serving_builds | jq | grep "https" | sed 's/.*  "//' | sort -n | uniq | grep "${milestone}\"" | grep "${name}" | grep -o 'http[s]\?://[^ ]\+' | sed 's/,//' | sed 's/"//')"
+
+  cached_image="$(echo ${url} | sed "s/https:\/\/dl.google.com\/dl\/edgedl\/chromeos\/recovery\/chromeos_//" | sed 's/_r.*//')"
+  if [[ ! -f "${cached_image}.tar" ]] ; then
+    echo "Cached image not found for ${cached_image}"
+
+    # Download image
+    curl --retry 3 -Lf "${url}" -o "${cached_image}".zip || ( echo "Download failed" && kill $$ )
+
+    # Extract image
+
+    # Extract the various layers of archives until we get to the root filesystem
+    # 7zip does not currently support extracting nested archives in one command, or extracting from stdin
+    7z x "${cached_image}".zip -so > "${cached_image}".bin
+    7z x "${cached_image}".bin ROOT-A.img
+    7z x ROOT-A.img -o"${cached_image}"
+
+    # Tar the unpacked filesystem for importing into docker
+    tar -cf "${cached_image}".tar "${cached_image}"
+
+    # Clean up after ourselves
+    rm -f "${cached_image}".zip
+    rm -f "${cached_image}".bin
+    rm -f ROOT-A.img
+    rm -rf "${cached_image}"
   fi
-  [[ -z "$rootpart" ]] && (echo "The downloaded recovery in ${name}.image.bin.${milestone}.zip doesn't look right." && kill $$)
-  chromeos_arch=$(file "$tmpdir"/bin/bash | awk '{print $7}' | sed 's/,//g')
+  exit 1
+}
+
+get_arch () {
+  chromeos_arch="$(csvgrep -c 5 -m ${name} devices.csv | tail +2 | csvcut -c 7)"
   echo "chromeos_arch is $chromeos_arch"
+  exit 1
   if [[ "$chromeos_arch" == "x86-64" ]]; then
     ARCH_LIB=lib64
     ARCH=x86_64
@@ -96,11 +117,8 @@ get_arch () {
 }
 import_to_Docker () {
   if ! docker image ls | grep "${REPOSITORY}"/crewbase:"${name}"-"${ARCH}".m"${milestone}" ; then
-    (cd "$tmpdir" && sudo tar -c . | docker import --platform "${PLATFORM}" - "${REPOSITORY}"/crewbase:"${name}"-"${ARCH}".m"${milestone}")
+    docker import "${cached_image}".tar.xz --platform "${PLATFORM}" - "${REPOSITORY}"/crewbase:"${name}"-"${ARCH}".m"${milestone}"
   fi
-  sudo umount "$tmpdir"
-  rm -rf "$tmpdir"
-  rm -rf "${tmpdir}_zip"
 }
 build_dockerfile () {
   cd "${outdir}" || exit
@@ -332,6 +350,7 @@ enter_docker_image () {
   exec "$(abspath "${outdir}")/crewbuild-${name}-${ARCH}.m${milestone}.sh"
 }
 main () {
+  setup_base
   get_arch
   mkdir "${outdir}"/{autobuild,built,packages,preinstall,postinstall,src_cache,tmp,"${ARCH}"} &> /dev/null
   import_to_Docker
