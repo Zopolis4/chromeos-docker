@@ -18,7 +18,9 @@ jobs:
             git config --global user.name 'github-actions[bot]'
             git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
       - name: Generate boards.json
-        run: ruby .github/boards.rb
+        run: |
+            sudo gem install nokogiri
+            ruby .github/boards.rb
       - name: Commit and push updated boards.json
         run: |
             git commit -o boards.json -m "Update boards.json" || true
