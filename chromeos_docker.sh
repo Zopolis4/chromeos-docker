@@ -35,7 +35,7 @@ setup_base () {
     rm -rf "${cached_image}"
 
     # If we don't already have the image cached, we don't already have it imported into docker
-    docker import "${cached_image}".tar --platform "${PLATFORM}" "${REPOSITORY}"/crewbase:"${name}"-.m"${milestone}"
+    docker import "${cached_image}".tar --platform "${PLATFORM}" "${REPOSITORY}"/crewbase:"${name}".m"${milestone}"
   else
     echo "Cached image found for ${cached_image}, skipping download."
   fi
@@ -55,7 +55,7 @@ build_dockerfile () {
   name=${name} milestone=${milestone} REPOSITORY=${REPOSITORY} CREW_LIB_PREFIX=${CREW_LIB_PREFIX} CREW_KERNEL_VERSION=${CREW_KERNEL_VERSION} envsubst '$name $milestone $REPOSITORY $ARCH $CREW_LIB_PREFIX $CREW_KERNEL_VERSION' < base_Dockerfile > Dockerfile
 }
 build_docker_image_with_docker_hub () {
-  docker push "${REPOSITORY}"/crewbase:"${name}"-.m"${milestone}"
+  docker push "${REPOSITORY}"/crewbase:"${name}".m"${milestone}"
 }
 build_docker_image () {
   docker pull tonistiigi/binfmt
@@ -65,9 +65,8 @@ build_docker_image () {
   docker buildx create --name builder --driver docker-container --use --driver-opt env.BUILDKIT_STEP_LOG_MAX_SIZE=10485760
   docker buildx inspect --bootstrap
   buildx_cmd="env PROGRESS_NO_TRUNC=1 docker buildx build \
-  --no-cache \
   --push --platform ${PLATFORM} \
-  --tag ${REPOSITORY}/crewbuild:${name}-.m${milestone} \
+  --tag ${REPOSITORY}/crewbuild:${name}.m${milestone} \
   ."
   echo "$buildx_cmd"
   $buildx_cmd  || echo "Docker Build Error."
