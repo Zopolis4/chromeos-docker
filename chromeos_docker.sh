@@ -42,25 +42,19 @@ setup_base () {
 }
 
 get_arch () {
-  user_arch="$(jq -r ."${name}"[\""User ABI"\"] boards.json)"
   kernel_arch="$(jq -r ."${name}"[\""Kernel ABI"\"] boards.json)"
-  if [[ "$user_arch" == "x86_64" ]]; then
-    DOCKER_PLATFORM=amd64
-    PLATFORM="linux/amd64"
-  elif [[ "$user_arch" == "arm" ]]; then
-    DOCKER_PLATFORM=arm32v7
-    PLATFORM="linux/arm/v7"
-  elif [[ "$user_arch" == "x86" ]]; then
-    DOCKER_PLATFORM=386
-    PLATFORM="linux/386"
-  fi
+  case $kernel_arch in
+    x86_64)  PLATFORM="linux/amd64";;
+    x86)     PLATFORM="linux/386";;
+    arm)     PLATFORM="linux/arm";;
+    aarch64) PLATFORM="linux/arm64";;
+  esac
   CREW_KERNEL_VERSION="$(jq -r ."${name}"[\""Kernel Version"\"] boards.json)"
 }
 build_dockerfile () {
   name=${name} milestone=${milestone} REPOSITORY=${REPOSITORY} CREW_LIB_PREFIX=${CREW_LIB_PREFIX} CREW_KERNEL_VERSION=${CREW_KERNEL_VERSION} envsubst '$name $milestone $REPOSITORY $ARCH $CREW_LIB_PREFIX $CREW_KERNEL_VERSION' < base_Dockerfile > Dockerfile
 }
 build_docker_image_with_docker_hub () {
-  docker tag "${REPOSITORY}"/crewbase:"${name}"-.m"${milestone}" "${REPOSITORY}"/crewbase:"${DOCKER_PLATFORM}"
   docker push "${REPOSITORY}"/crewbase:"${name}"-.m"${milestone}"
 }
 build_docker_image () {
@@ -74,7 +68,6 @@ build_docker_image () {
   --no-cache \
   --push --platform ${PLATFORM} \
   --tag ${REPOSITORY}/crewbuild:${name}-.m${milestone} \
-  --tag ${REPOSITORY}/crewbuild:${DOCKER_PLATFORM} \
   ."
   echo "$buildx_cmd"
   $buildx_cmd  || echo "Docker Build Error."
