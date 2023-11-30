@@ -5,12 +5,10 @@ name="${1}"
 milestone="${2}"
 : "${outdir:=$(pwd)}"
 : "${REPOSITORY:=satmandu}"
-: "${PKG_CACHE:=$outdir/pkg_cache}"
 echo "       name: ${name}"
 echo "  milestone: ${milestone}"
 echo " REPOSITORY: ${REPOSITORY}"
 echo "output root: ${outdir}"
-echo "  PKG_CACHE: ${PKG_CACHE}"
 
 function abspath {
   echo $(cd "$1" && pwd)
@@ -69,7 +67,7 @@ get_arch () {
   CREW_LIB_PREFIX=/usr/local/$ARCH_LIB
 }
 import_to_Docker () {
-  if ! docker image ls | grep "${REPOSITORY}"/crewbase:"${name}"-"${ARCH}".m"${milestone}" ; then
+  if ! docker image ls | grep ""${REPOSITORY}"/crewbase    "${name}"-"${ARCH}".m"${milestone}"" ; then
     docker import "${cached_image}".tar --platform "${PLATFORM}" "${REPOSITORY}"/crewbase:"${name}"-"${ARCH}".m"${milestone}"
   fi
 }
@@ -78,18 +76,8 @@ build_dockerfile () {
   name=${name} milestone=${milestone} REPOSITORY=${REPOSITORY} CREW_LIB_PREFIX=${CREW_LIB_PREFIX} CREW_KERNEL_VERSION=${CREW_KERNEL_VERSION} envsubst '$name $milestone $REPOSITORY $ARCH $CREW_LIB_PREFIX $CREW_KERNEL_VERSION' < Dockerfile > ./"${ARCH}"/Dockerfile
 }
 build_docker_image_with_docker_hub () {
-  docker ps
-  if ! docker pull "${REPOSITORY}"/crewbase:"${name}"-"${ARCH}".m"${milestone}" ; then 
   docker tag "${REPOSITORY}"/crewbase:"${name}"-"${ARCH}".m"${milestone}" "${REPOSITORY}"/crewbase:"${DOCKER_PLATFORM}"
   docker push "${REPOSITORY}"/crewbase:"${name}"-"${ARCH}".m"${milestone}"
-fi
-}
-make_cache_links () {
-  mkdir -p ./"${ARCH}"/pkg_cache
-  for i in $(cd pkg_cache && ls ./*"${ARCH}"*.*xz) 
-  do
-  ln -f pkg_cache/"$i" ./"${ARCH}"/pkg_cache/"$i" 2>/dev/null || ( [[ ! -f ./${ARCH}/pkg_cache/$i ]] && cp pkg_cache/"$i" ./"${ARCH}"/pkg_cache/"$i" )
-  done
 }
 build_docker_image () {
   docker image ls
@@ -116,15 +104,9 @@ make_docker_image_script () {
   envsubst '$name $milestone $REPOSITORY $PLATFORM $ARCH' < crewbuild.sh > crewbuild-"${name}"-"${ARCH}".m"${milestone}".sh
   chmod +x $(abspath "${outdir}")/crewbuild-"${name}"-"${ARCH}".m"${milestone}".sh
 }
-enter_docker_image () {
-  echo "Running \"$(abspath "${outdir}")/crewbuild-${name}-${ARCH}.m${milestone}.sh\""
-  echo "Entering in..." && countdown "00:00:30"
-  exec "$(abspath "${outdir}")/crewbuild-${name}-${ARCH}.m${milestone}.sh"
-}
 main () {
   setup_base
   get_arch
-  mkdir "${outdir}"/{autobuild,built,packages,preinstall,postinstall,src_cache,tmp,"${ARCH}"} &> /dev/null
   import_to_Docker
   ## This enables ipv6 for docker container
   #if ! docker container ls | grep ipv6nat  ; then
@@ -132,11 +114,9 @@ main () {
   #fi
   rm crewbuild-"${name}"-"${ARCH}".m"${milestone}"-build.log
   echo "build being logged to crewbuild-${name}-${ARCH}.m${milestone}-build.log"
-  build_dockerfile 2>&1 | tee -a crewbuild-"${name}"-"${ARCH}".m"${milestone}"-build.log
+  build_dockerfile
   build_docker_image_with_docker_hub 2>&1 | tee -a crewbuild-"${name}"-"${ARCH}".m"${milestone}"-build.log
-  make_cache_links 2>&1 |tee -a crewbuild-"${name}"-"${ARCH}".m"${milestone}"-build.log
   build_docker_image 2>&1 | tee -a crewbuild-"${name}"-"${ARCH}".m"${milestone}"-build.log
   make_docker_image_script 2>&1 | tee -a crewbuild-"${name}"-"${ARCH}".m"${milestone}"-build.log
-  [[ -z "$JUST_BUILD" ]] && enter_docker_image
 }
 main
