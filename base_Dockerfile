@@ -9,9 +9,6 @@ ENV CREW_KERNEL_VERSION=$CREW_KERNEL_VERSION
 ENV ARCH=$ARCH
 ENV PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin
 ENV HOME=/home/chronos/user/
-ENV LANG=en_US.UTF-8
-ENV LC_all=en_US.UTF-8
-ENV XML_CATALOG_FILES=/usr/local/etc/xml/catalog
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 COPY .bashrc /home/chronos/user/
 COPY chromebrewstart /bin/
