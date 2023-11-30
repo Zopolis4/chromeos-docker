@@ -99,11 +99,6 @@ build_docker_image () {
   echo "$buildx_cmd"
   $buildx_cmd  || echo "Docker Build Error."
 }
-make_docker_image_script () {
-  [[ -f $(abspath "${outdir}")/crewbuild-${name}-${ARCH}.m${milestone}.sh ]] && rm $(abspath "${outdir}")/crewbuild-"${name}"-"${ARCH}".m"${milestone}".sh
-  envsubst '$name $milestone $REPOSITORY $PLATFORM $ARCH' < crewbuild.sh > crewbuild-"${name}"-"${ARCH}".m"${milestone}".sh
-  chmod +x $(abspath "${outdir}")/crewbuild-"${name}"-"${ARCH}".m"${milestone}".sh
-}
 main () {
   setup_base
   get_arch
@@ -117,6 +112,5 @@ main () {
   build_dockerfile
   build_docker_image_with_docker_hub 2>&1 | tee -a crewbuild-"${name}"-"${ARCH}".m"${milestone}"-build.log
   build_docker_image 2>&1 | tee -a crewbuild-"${name}"-"${ARCH}".m"${milestone}"-build.log
-  make_docker_image_script 2>&1 | tee -a crewbuild-"${name}"-"${ARCH}".m"${milestone}"-build.log
 }
 main
