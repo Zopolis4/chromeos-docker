@@ -42,23 +42,19 @@ get_arch () {
   user_arch="$(jq -r ."${name}"[\""User ABI"\"] boards.json)"
   kernel_arch="$(jq -r ."${name}"[\""Kernel ABI"\"] boards.json)"
   if [[ "$user_arch" == "x86_64" ]]; then
-    ARCH_LIB=lib64
     ARCH=x86_64
     DOCKER_PLATFORM=amd64
     PLATFORM="linux/amd64"
   elif [[ "$user_arch" == "arm" ]]; then
     ARCH=armv7l
-    ARCH_LIB=lib
     DOCKER_PLATFORM=arm32v7
     PLATFORM="linux/arm/v7"
   elif [[ "$user_arch" == "x86" ]]; then
     ARCH=i686
-    ARCH_LIB=lib
     DOCKER_PLATFORM=386
     PLATFORM="linux/386"
   fi
   CREW_KERNEL_VERSION="$(jq -r ."${name}"[\""Kernel Version"\"] boards.json)"
-  CREW_LIB_PREFIX=/usr/local/$ARCH_LIB
 }
 import_to_Docker () {
   if ! docker image ls | grep ""${REPOSITORY}"/crewbase    "${name}"-"${ARCH}".m"${milestone}"" ; then
