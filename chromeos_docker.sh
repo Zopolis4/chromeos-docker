@@ -3,16 +3,10 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 name="${1}"
 milestone="${2}"
-: "${outdir:=$(pwd)}"
 : "${REPOSITORY:=satmandu}"
 echo "       name: ${name}"
 echo "  milestone: ${milestone}"
 echo " REPOSITORY: ${REPOSITORY}"
-echo "output root: ${outdir}"
-
-function abspath {
-  echo $(cd "$1" && pwd)
-}
 
 setup_base () {
   url="$(jq -r .\""${name}"\"[\""Recovery Images"\"][\""${milestone}"\"] boards.json)"
