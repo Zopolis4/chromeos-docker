@@ -66,8 +66,7 @@ import_to_Docker () {
   fi
 }
 build_dockerfile () {
-  cp .dockerignore ./"${ARCH}"
-  name=${name} milestone=${milestone} REPOSITORY=${REPOSITORY} CREW_LIB_PREFIX=${CREW_LIB_PREFIX} CREW_KERNEL_VERSION=${CREW_KERNEL_VERSION} envsubst '$name $milestone $REPOSITORY $ARCH $CREW_LIB_PREFIX $CREW_KERNEL_VERSION' < Dockerfile > ./"${ARCH}"/Dockerfile
+  name=${name} milestone=${milestone} REPOSITORY=${REPOSITORY} CREW_LIB_PREFIX=${CREW_LIB_PREFIX} CREW_KERNEL_VERSION=${CREW_KERNEL_VERSION} envsubst '$name $milestone $REPOSITORY $ARCH $CREW_LIB_PREFIX $CREW_KERNEL_VERSION' < base_Dockerfile > Dockerfile
 }
 build_docker_image_with_docker_hub () {
   docker tag "${REPOSITORY}"/crewbase:"${name}"-"${ARCH}".m"${milestone}" "${REPOSITORY}"/crewbase:"${DOCKER_PLATFORM}"
@@ -89,9 +88,10 @@ build_docker_image () {
   --tag ${REPOSITORY}/crewbuild:${name}-${ARCH}.m${milestone} \
   --tag ${REPOSITORY}/crewbuild:m${milestone}-${ARCH} \
   --tag ${REPOSITORY}/crewbuild:${DOCKER_PLATFORM} \
-  ./${ARCH}/"
+  ."
   echo "$buildx_cmd"
   $buildx_cmd  || echo "Docker Build Error."
+  rm -f Dockerfile
 }
 main () {
   setup_base
