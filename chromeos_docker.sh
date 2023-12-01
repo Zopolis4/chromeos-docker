@@ -57,7 +57,7 @@ get_arch () {
   CREW_KERNEL_VERSION="$(jq -r ."${name}"[\""Kernel Version"\"] boards.json)"
 }
 import_to_Docker () {
-  if ! docker image ls | grep ""${REPOSITORY}"/crewbase    "${name}"-"${ARCH}".m"${milestone}"" ; then
+  if ! docker image ls | grep -q ""${REPOSITORY}"/crewbase    "${name}"-"${ARCH}".m"${milestone}"" ; then
     docker import "${cached_image}".tar --platform "${PLATFORM}" "${REPOSITORY}"/crewbase:"${name}"-"${ARCH}".m"${milestone}"
   fi
 }
@@ -69,9 +69,6 @@ build_docker_image_with_docker_hub () {
   docker push "${REPOSITORY}"/crewbase:"${name}"-"${ARCH}".m"${milestone}"
 }
 build_docker_image () {
-  docker image ls
-  dangling_images=$(docker images --filter "dangling=true" -q --no-trunc)
-  [[ -n "$dangling_images" ]] && docker rmi -f $(docker images --filter "dangling=true" -q --no-trunc)
   docker pull tonistiigi/binfmt
   docker run --privileged --rm tonistiigi/binfmt --uninstall qemu-*
   docker run --privileged --rm tonistiigi/binfmt --install all
@@ -93,14 +90,8 @@ main () {
   setup_base
   get_arch
   import_to_Docker
-  ## This enables ipv6 for docker container
-  #if ! docker container ls | grep ipv6nat  ; then
-    #docker run -d --name ipv6nat --privileged --network host --restart unless-stopped -v /var/run/docker.sock:/var/run/docker.sock:ro -v /lib/modules:/lib/modules:ro robbertkl/ipv6nat
-  #fi
-  rm crewbuild-"${name}"-"${ARCH}".m"${milestone}"-build.log
-  echo "build being logged to crewbuild-${name}-${ARCH}.m${milestone}-build.log"
   build_dockerfile
-  build_docker_image_with_docker_hub 2>&1 | tee -a crewbuild-"${name}"-"${ARCH}".m"${milestone}"-build.log
-  build_docker_image 2>&1 | tee -a crewbuild-"${name}"-"${ARCH}".m"${milestone}"-build.log
+  build_docker_image_with_docker_hub
+  build_docker_image
 }
 main
