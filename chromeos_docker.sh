@@ -33,6 +33,9 @@ setup_base () {
     rm -f "${cached_image}".bin
     rm -f ROOT-A.img
     rm -rf "${cached_image}"
+
+    # If we don't already have the image cached, we don't already have it imported into docker
+    docker import "${cached_image}".tar --platform "${PLATFORM}" "${REPOSITORY}"/crewbase:"${name}"-.m"${milestone}"
   else
     echo "Cached image found for ${cached_image}, skipping download."
   fi
@@ -52,11 +55,6 @@ get_arch () {
     PLATFORM="linux/386"
   fi
   CREW_KERNEL_VERSION="$(jq -r ."${name}"[\""Kernel Version"\"] boards.json)"
-}
-import_to_Docker () {
-  if ! docker image ls | grep -q ""${REPOSITORY}"/crewbase    "${name}"-.m"${milestone}"" ; then
-    docker import "${cached_image}".tar --platform "${PLATFORM}" "${REPOSITORY}"/crewbase:"${name}"-.m"${milestone}"
-  fi
 }
 build_dockerfile () {
   name=${name} milestone=${milestone} REPOSITORY=${REPOSITORY} CREW_LIB_PREFIX=${CREW_LIB_PREFIX} CREW_KERNEL_VERSION=${CREW_KERNEL_VERSION} envsubst '$name $milestone $REPOSITORY $ARCH $CREW_LIB_PREFIX $CREW_KERNEL_VERSION' < base_Dockerfile > Dockerfile
@@ -85,7 +83,6 @@ build_docker_image () {
 main () {
   setup_base
   get_arch
-  import_to_Docker
   build_dockerfile
   build_docker_image_with_docker_hub
   build_docker_image
