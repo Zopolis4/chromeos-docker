@@ -42,31 +42,28 @@ get_arch () {
   user_arch="$(jq -r ."${name}"[\""User ABI"\"] boards.json)"
   kernel_arch="$(jq -r ."${name}"[\""Kernel ABI"\"] boards.json)"
   if [[ "$user_arch" == "x86_64" ]]; then
-    ARCH=x86_64
     DOCKER_PLATFORM=amd64
     PLATFORM="linux/amd64"
   elif [[ "$user_arch" == "arm" ]]; then
-    ARCH=armv7l
     DOCKER_PLATFORM=arm32v7
     PLATFORM="linux/arm/v7"
   elif [[ "$user_arch" == "x86" ]]; then
-    ARCH=i686
     DOCKER_PLATFORM=386
     PLATFORM="linux/386"
   fi
   CREW_KERNEL_VERSION="$(jq -r ."${name}"[\""Kernel Version"\"] boards.json)"
 }
 import_to_Docker () {
-  if ! docker image ls | grep -q ""${REPOSITORY}"/crewbase    "${name}"-"${ARCH}".m"${milestone}"" ; then
-    docker import "${cached_image}".tar --platform "${PLATFORM}" "${REPOSITORY}"/crewbase:"${name}"-"${ARCH}".m"${milestone}"
+  if ! docker image ls | grep -q ""${REPOSITORY}"/crewbase    "${name}"-.m"${milestone}"" ; then
+    docker import "${cached_image}".tar --platform "${PLATFORM}" "${REPOSITORY}"/crewbase:"${name}"-.m"${milestone}"
   fi
 }
 build_dockerfile () {
   name=${name} milestone=${milestone} REPOSITORY=${REPOSITORY} CREW_LIB_PREFIX=${CREW_LIB_PREFIX} CREW_KERNEL_VERSION=${CREW_KERNEL_VERSION} envsubst '$name $milestone $REPOSITORY $ARCH $CREW_LIB_PREFIX $CREW_KERNEL_VERSION' < base_Dockerfile > Dockerfile
 }
 build_docker_image_with_docker_hub () {
-  docker tag "${REPOSITORY}"/crewbase:"${name}"-"${ARCH}".m"${milestone}" "${REPOSITORY}"/crewbase:"${DOCKER_PLATFORM}"
-  docker push "${REPOSITORY}"/crewbase:"${name}"-"${ARCH}".m"${milestone}"
+  docker tag "${REPOSITORY}"/crewbase:"${name}"-.m"${milestone}" "${REPOSITORY}"/crewbase:"${DOCKER_PLATFORM}"
+  docker push "${REPOSITORY}"/crewbase:"${name}"-.m"${milestone}"
 }
 build_docker_image () {
   docker pull tonistiigi/binfmt
@@ -78,8 +75,7 @@ build_docker_image () {
   buildx_cmd="env PROGRESS_NO_TRUNC=1 docker buildx build \
   --no-cache \
   --push --platform ${PLATFORM} \
-  --tag ${REPOSITORY}/crewbuild:${name}-${ARCH}.m${milestone} \
-  --tag ${REPOSITORY}/crewbuild:m${milestone}-${ARCH} \
+  --tag ${REPOSITORY}/crewbuild:${name}-.m${milestone} \
   --tag ${REPOSITORY}/crewbuild:${DOCKER_PLATFORM} \
   ."
   echo "$buildx_cmd"
