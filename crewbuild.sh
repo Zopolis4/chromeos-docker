@@ -28,7 +28,7 @@ if [ -f "$HOME"/.Xauthority ]; then
   X11+=" "
   X11+=--volume=$HOME/.Xauthority:/home/chronos/.Xauthority:rw
 fi
-docker pull --platform ${PLATFORM} ${REPOSITORY}/crewbuild:${name}-${ARCH}.m${milestone}
+docker pull --platform ${PLATFORM} ${REPOSITORY}/crewbuild:${name}.m${milestone}
 docker pull tonistiigi/binfmt
 docker run --privileged --rm tonistiigi/binfmt --install all
-docker run --platform ${PLATFORM} --rm --net=host ${PAGER_PASSTHROUGH} ${X11} -e LOCALRC="${LOCALRC}" -h $(hostname)-${ARCH} -it ${REPOSITORY}/crewbuild:${name}-${ARCH}.m${milestone}
+docker run --platform ${PLATFORM} --rm --net=host ${PAGER_PASSTHROUGH} ${X11} -e LOCALRC="${LOCALRC}" -it ${REPOSITORY}/crewbuild:${name}.m${milestone}

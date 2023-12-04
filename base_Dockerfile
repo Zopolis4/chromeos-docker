@@ -1,16 +1,14 @@
 # syntax=docker/dockerfile:1.3-labs
 ARG UID=1000
-FROM ${REPOSITORY}/crewbase:${name}-${ARCH}.m${milestone} AS builder
+FROM ${REPOSITORY}/crewbase:${name}.m${milestone} AS builder
 ARG TARGETPLATFORM
 ARG BUILDPLATFORM
 RUN echo "I am running on $BUILDPLATFORM, building for $TARGETPLATFORM"
-#ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CREW_LIB_PREFIX
 # Set githup repo information being synced from for install.
 ENV REPO=chromebrew
 ENV OWNER=chromebrew
 ENV BRANCH=master
 ENV CREW_KERNEL_VERSION=$CREW_KERNEL_VERSION
-ENV ARCH=$ARCH
 ENV PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin
 ENV HOME=/home/chronos/user/
 ENV LANG=en_US.UTF-8
@@ -46,12 +44,12 @@ echo "Disk Space used by initial install:"
 du -ahx /usr/local | tail
 echo "Packages installed but not in core_packages.txt:"
 comm -13 <(cat ../tools/core_packages.txt| sort) <(crew -d list installed| sort)
-LD_LIBRARY_PATH=$CREW_LIB_PREFIX:$LD_LIBRARY_PATH   crew postinstall crew_profile_base
-yes | LD_LIBRARY_PATH=$CREW_LIB_PREFIX:$LD_LIBRARY_PATH   crew install util_linux psmisc
+crew postinstall crew_profile_base
+yes | crew install util_linux psmisc
   crew install util_linux psmisc
 EOF2
 # We can use setarch now that util_linux is installed.
-SHELL ["/usr/bin/sudo", "-E", "-n", "BASH_ENV=/home/chronos/user/.bashrc", "-u", "chronos", "setarch", "$ARCH", "/bin/bash", "-o", "pipefail", "-c"]
+SHELL ["/usr/bin/sudo", "-E", "-n", "BASH_ENV=/home/chronos/user/.bashrc", "-u", "chronos", "setarch", "$(arch)", "/bin/bash", "-o", "pipefail", "-c"]
 COPY .bash_profile /home/chronos/user/
 RUN --mount=type=bind,target=/input <<EOF3
 yes |   LD_LIBRARY_PATH=/lib64:$LD_LIBRARY_PATH   PATH=/usr/local/bin:/usr/local/sbin:$PATH   crew install buildessential || true

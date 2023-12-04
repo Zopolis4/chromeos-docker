@@ -53,41 +53,28 @@ setup_base () {
 }
 
 get_arch () {
-  user_arch="$(jq -r ."${name}"[\""User ABI"\"] boards.json)"
-  if [[ "$user_arch" == "x86_64" ]]; then
-    ARCH_LIB=lib64
-    ARCH=x86_64
-    DOCKER_PLATFORM=amd64
-    PLATFORM="linux/amd64"
-  elif [[ "$user_arch" == "arm" ]]; then
-    ARCH=armv7l
-    ARCH_LIB=lib
-    DOCKER_PLATFORM=arm32v7
-    PLATFORM="linux/arm/v7"
-  elif [[ "$user_arch" == "x86" ]]; then
-    ARCH=i686
-    ARCH_LIB=lib
-    DOCKER_PLATFORM=386
-    PLATFORM="linux/386"
-  fi
+  kernel_arch="$(jq -r ."${name}"[\""Kernel ABI"\"] boards.json)"
+  case $kernel_arch in
+    x86_64)  PLATFORM="linux/amd64";;
+    x86)     PLATFORM="linux/386";;
+    arm)     PLATFORM="linux/arm";;
+    aarch64) PLATFORM="linux/arm64";;
+  esac
   CREW_KERNEL_VERSION="$(jq -r ."${name}"[\""Kernel Version"\"] boards.json)"
-  CREW_LIB_PREFIX=/usr/local/$ARCH_LIB
 }
 import_to_Docker () {
-  if ! docker image ls | grep "${REPOSITORY}"/crewbase:"${name}"-"${ARCH}".m"${milestone}" ; then
-    docker import "${cached_image}".tar --platform "${PLATFORM}" "${REPOSITORY}"/crewbase:"${name}"-"${ARCH}".m"${milestone}"
+  if ! docker image ls | grep "${REPOSITORY}"/crewbase:"${name}".m"${milestone}" ; then
+    docker import "${cached_image}".tar --platform "${PLATFORM}" "${REPOSITORY}"/crewbase:"${name}".m"${milestone}"
   fi
 }
 build_dockerfile () {
-  cp .dockerignore ./"${ARCH}"
-  name=${name} milestone=${milestone} REPOSITORY=${REPOSITORY} CREW_LIB_PREFIX=${CREW_LIB_PREFIX} CREW_KERNEL_VERSION=${CREW_KERNEL_VERSION} envsubst '$name $milestone $REPOSITORY $ARCH $CREW_LIB_PREFIX $CREW_KERNEL_VERSION' < Dockerfile > ./"${ARCH}"/Dockerfile
+  name=${name} milestone=${milestone} REPOSITORY=${REPOSITORY} CREW_KERNEL_VERSION=${CREW_KERNEL_VERSION} envsubst '$name $milestone $REPOSITORY $CREW_KERNEL_VERSION' < base_Dockerfile > Dockerfile
 }
 build_docker_image_with_docker_hub () {
   docker ps
   echo "Tag & Push starting in ..." && countdown "00:00:01"
-  if ! docker pull "${REPOSITORY}"/crewbase:"${name}"-"${ARCH}".m"${milestone}" ; then 
-  docker tag "${REPOSITORY}"/crewbase:"${name}"-"${ARCH}".m"${milestone}" "${REPOSITORY}"/crewbase:"${DOCKER_PLATFORM}"
-  docker push "${REPOSITORY}"/crewbase:"${name}"-"${ARCH}".m"${milestone}"
+  if ! docker pull "${REPOSITORY}"/crewbase:"${name}".m"${milestone}" ; then
+  docker push "${REPOSITORY}"/crewbase:"${name}".m"${milestone}"
 fi
 }
 build_docker_image () {
@@ -100,12 +87,11 @@ build_docker_image () {
   buildx_cmd="env PROGRESS_NO_TRUNC=1 docker buildx build \
   --no-cache \
   --push --platform ${PLATFORM} \
-  --tag ${REPOSITORY}/crewbuild:${name}-${ARCH}.m${milestone} \
-  --tag ${REPOSITORY}/crewbuild:m${milestone}-${ARCH} \
-  --tag ${REPOSITORY}/crewbuild:${DOCKER_PLATFORM} \
-  ./${ARCH}/"
+  --tag ${REPOSITORY}/crewbuild:${name}.m${milestone} \
+  ."
   echo "$buildx_cmd"
   $buildx_cmd  || echo "Docker Build Error."
+  rm -f Dockerfile
 }
 main () {
   setup_base
