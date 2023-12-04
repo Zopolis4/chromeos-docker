@@ -32,8 +32,12 @@ setup_base () {
     # Clean up after ourselves
     rm -f "${cached_image}".zip "${cached_image}".bin 2.ROOT-A.img
     rm -rf "${cached_image}"
+
+    # If we don't already have the image cached, we don't already have it imported into docker and pushed to the repository
+    docker import "${cached_image}".tar --platform "${PLATFORM}" "${REPOSITORY}"/crewbase:"${name}".m"${milestone}"
+    docker push "${REPOSITORY}"/crewbase:"${name}".m"${milestone}"
   else
-    echo "Cached image found for ${cached_image}, skipping download."
+    echo "Cached image found for ${cached_image}, skipping download, import and push."
   fi
 }
 
@@ -47,19 +51,8 @@ get_arch () {
   esac
   CREW_KERNEL_VERSION="$(jq -r ."${name}"[\""Kernel Version"\"] boards.json)"
 }
-import_to_Docker () {
-  if ! docker image ls | grep "${REPOSITORY}"/crewbase:"${name}".m"${milestone}" ; then
-    docker import "${cached_image}".tar --platform "${PLATFORM}" "${REPOSITORY}"/crewbase:"${name}".m"${milestone}"
-  fi
-}
 build_dockerfile () {
   name=${name} milestone=${milestone} REPOSITORY=${REPOSITORY} CREW_KERNEL_VERSION=${CREW_KERNEL_VERSION} envsubst '$name $milestone $REPOSITORY $CREW_KERNEL_VERSION' < base_Dockerfile > Dockerfile
-}
-build_docker_image_with_docker_hub () {
-  docker ps
-  if ! docker pull "${REPOSITORY}"/crewbase:"${name}".m"${milestone}" ; then
-  docker push "${REPOSITORY}"/crewbase:"${name}".m"${milestone}"
-fi
 }
 build_docker_image () {
   docker image ls
@@ -78,11 +71,9 @@ build_docker_image () {
   rm -f Dockerfile
 }
 main () {
-  setup_base
   get_arch
-  import_to_Docker
+  setup_base
   build_dockerfile
-  build_docker_image_with_docker_hub
   build_docker_image
 }
 main
