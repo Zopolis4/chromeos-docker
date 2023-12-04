@@ -101,10 +101,8 @@ main () {
   #if ! docker container ls | grep ipv6nat  ; then
     #docker run -d --name ipv6nat --privileged --network host --restart unless-stopped -v /var/run/docker.sock:/var/run/docker.sock:ro -v /lib/modules:/lib/modules:ro robbertkl/ipv6nat
   #fi
-  rm crewbuild-"${name}"-"${ARCH}".m"${milestone}"-build.log
-  echo "build being logged to crewbuild-${name}-${ARCH}.m${milestone}-build.log"
-  build_dockerfile 2>&1 | tee -a crewbuild-"${name}"-"${ARCH}".m"${milestone}"-build.log
-  build_docker_image_with_docker_hub 2>&1 | tee -a crewbuild-"${name}"-"${ARCH}".m"${milestone}"-build.log
-  build_docker_image 2>&1 | tee -a crewbuild-"${name}"-"${ARCH}".m"${milestone}"-build.log
+  build_dockerfile
+  build_docker_image_with_docker_hub
+  build_docker_image
 }
 main
