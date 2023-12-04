@@ -97,10 +97,6 @@ main () {
   setup_base
   get_arch
   import_to_Docker
-  ## This enables ipv6 for docker container
-  #if ! docker container ls | grep ipv6nat  ; then
-    #docker run -d --name ipv6nat --privileged --network host --restart unless-stopped -v /var/run/docker.sock:/var/run/docker.sock:ro -v /lib/modules:/lib/modules:ro robbertkl/ipv6nat
-  #fi
   build_dockerfile
   build_docker_image_with_docker_hub
   build_docker_image
