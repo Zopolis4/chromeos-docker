@@ -40,7 +40,7 @@ EOF1
 # crew_profile_base isn't getting postinstall run on i686
 SHELL ["/usr/bin/sudo", "-E", "-n", "BASH_ENV=/home/chronos/user/.bashrc", "-u", "chronos", "/bin/bash", "-c"]
 RUN --mount=type=bind,target=/input <<EOF2
-PATH=/usr/local/bin:/usr/local/sbin:$PATH   CREW_CACHE_DIR=/input/pkg_cache   CREW_CACHE_ENABLED=1   OWNER=$OWNER   BRANCH=$BRANCH   CREW_FORCE_INSTALL=1   CREW_KERNEL_VERSION=$CREW_KERNEL_VERSION   /bin/bash /home/chronos/user/install.sh
+PATH=/usr/local/bin:/usr/local/sbin:$PATH   OWNER=$OWNER   BRANCH=$BRANCH   CREW_FORCE_INSTALL=1   CREW_KERNEL_VERSION=$CREW_KERNEL_VERSION   /bin/bash /home/chronos/user/install.sh
 cd /usr/local/lib/crew/packages
 echo "Disk Space used by initial install:"
 du -ahx /usr/local | tail
@@ -54,7 +54,7 @@ EOF2
 SHELL ["/usr/bin/sudo", "-E", "-n", "BASH_ENV=/home/chronos/user/.bashrc", "-u", "chronos", "setarch", "$ARCH", "/bin/bash", "-o", "pipefail", "-c"]
 COPY .bash_profile /home/chronos/user/
 RUN --mount=type=bind,target=/input <<EOF3
-yes |   LD_LIBRARY_PATH=/lib64:$LD_LIBRARY_PATH   PATH=/usr/local/bin:/usr/local/sbin:$PATH   CREW_CACHE_DIR=/input/pkg_cache   CREW_CACHE_ENABLED=1   crew install buildessential || true
+yes |   LD_LIBRARY_PATH=/lib64:$LD_LIBRARY_PATH   PATH=/usr/local/bin:/usr/local/sbin:$PATH   crew install buildessential || true
   if gem list -i "^rubocop$" ; then
   echo 'Running gem update -N --system'
     gem update -N --system

@@ -31,4 +31,4 @@ fi
 docker pull --platform ${PLATFORM} ${REPOSITORY}/crewbuild:${name}-${ARCH}.m${milestone}
 docker pull tonistiigi/binfmt
 docker run --privileged --rm tonistiigi/binfmt --install all
-docker run --platform ${PLATFORM} --rm --net=host ${PAGER_PASSTHROUGH} ${X11} -e LOCALRC="${LOCALRC}" -v $(pwd)/pkg_cache:/usr/local/tmp/packages --v $(pwd):/output -h $(hostname)-${ARCH} -it ${REPOSITORY}/crewbuild:${name}-${ARCH}.m${milestone}
+docker run --platform ${PLATFORM} --rm --net=host ${PAGER_PASSTHROUGH} ${X11} -e LOCALRC="${LOCALRC}" -h $(hostname)-${ARCH} -it ${REPOSITORY}/crewbuild:${name}-${ARCH}.m${milestone}

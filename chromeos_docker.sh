@@ -4,14 +4,10 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 name="${1}"
 milestone="${2}"
-: "${outdir:=$(pwd)}"
 : "${REPOSITORY:=satmandu}"
-: "${PKG_CACHE:=$outdir/pkg_cache}"
 echo "       name: ${name}"
 echo "  milestone: ${milestone}"
 echo " REPOSITORY: ${REPOSITORY}"
-echo "output root: ${outdir}"
-echo "  PKG_CACHE: ${PKG_CACHE}"
 
 countdown()
 (
@@ -94,13 +90,6 @@ build_docker_image_with_docker_hub () {
   docker push "${REPOSITORY}"/crewbase:"${name}"-"${ARCH}".m"${milestone}"
 fi
 }
-make_cache_links () {
-  mkdir -p ./"${ARCH}"/pkg_cache
-  for i in $(cd pkg_cache && ls ./*"${ARCH}"*.*xz) 
-  do
-  ln -f pkg_cache/"$i" ./"${ARCH}"/pkg_cache/"$i" 2>/dev/null || ( [[ ! -f ./${ARCH}/pkg_cache/$i ]] && cp pkg_cache/"$i" ./"${ARCH}"/pkg_cache/"$i" )
-  done
-}
 build_docker_image () {
   docker image ls
   dangling_images=$(docker images --filter "dangling=true" -q --no-trunc)
@@ -121,7 +110,6 @@ build_docker_image () {
 main () {
   setup_base
   get_arch
-  mkdir "${outdir}"/{autobuild,built,packages,preinstall,postinstall,src_cache,tmp,"${ARCH}"} &> /dev/null
   import_to_Docker
   ## This enables ipv6 for docker container
   #if ! docker container ls | grep ipv6nat  ; then
@@ -131,7 +119,6 @@ main () {
   echo "build being logged to crewbuild-${name}-${ARCH}.m${milestone}-build.log"
   build_dockerfile 2>&1 | tee -a crewbuild-"${name}"-"${ARCH}".m"${milestone}"-build.log
   build_docker_image_with_docker_hub 2>&1 | tee -a crewbuild-"${name}"-"${ARCH}".m"${milestone}"-build.log
-  make_cache_links 2>&1 |tee -a crewbuild-"${name}"-"${ARCH}".m"${milestone}"-build.log
   build_docker_image 2>&1 | tee -a crewbuild-"${name}"-"${ARCH}".m"${milestone}"-build.log
 }
 main

@@ -10,5 +10,3 @@ QEMU_CPU=max
 CFLAGS="-march=x86-64"
 : "${LANG:=en_US.UTF-8}"
 : "${LC_ALL:=en_US.UTF-8}"
-[[ -d "/output/pkg_cache" ]] && CREW_CACHE_DIR=/output/pkg_cache
-[[ -n "$CREW_CACHE_DIR" ]] && CREW_CACHE_ENABLED=1
