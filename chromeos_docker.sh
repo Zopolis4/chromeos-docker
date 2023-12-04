@@ -9,21 +9,6 @@ echo "       name: ${name}"
 echo "  milestone: ${milestone}"
 echo " REPOSITORY: ${REPOSITORY}"
 
-countdown()
-(
-  IFS=:
-  set -- $*
-  secs=$(( ${1#0} * 3600 + ${2#0} * 60 + ${3#0} ))
-  while [ $secs -gt 0 ]
-  do
-    sleep 1 &
-    printf "\r%02d:%02d:%02d" $((secs/3600)) $(( (secs/60)%60)) $((secs%60))
-    secs=$(( $secs - 1 ))
-    wait
-  done
-  echo
-)
-
 setup_base () {
   url="$(jq -r .\""${name}"\"[\""Recovery Images"\"][\""${milestone}"\"] boards.json)"
   cached_image="$(echo ${url} | sed "s/https:\/\/dl.google.com\/dl\/edgedl\/chromeos\/recovery\/chromeos_//" | sed 's/_r.*//')"
@@ -72,7 +57,6 @@ build_dockerfile () {
 }
 build_docker_image_with_docker_hub () {
   docker ps
-  echo "Tag & Push starting in ..." && countdown "00:00:01"
   if ! docker pull "${REPOSITORY}"/crewbase:"${name}".m"${milestone}" ; then
   docker push "${REPOSITORY}"/crewbase:"${name}".m"${milestone}"
 fi
