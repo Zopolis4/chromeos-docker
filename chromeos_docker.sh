@@ -13,9 +13,6 @@ echo " REPOSITORY: ${REPOSITORY}"
 echo "output root: ${outdir}"
 echo "  PKG_CACHE: ${PKG_CACHE}"
 
-function abspath {
-  echo $(cd "$1" && pwd)
-}
 countdown()
 (
   IFS=:
@@ -108,9 +105,6 @@ build_docker_image () {
   docker image ls
   dangling_images=$(docker images --filter "dangling=true" -q --no-trunc)
   [[ -n "$dangling_images" ]] && docker rmi -f $(docker images --filter "dangling=true" -q --no-trunc)
-  docker pull tonistiigi/binfmt
-  docker run --privileged --rm tonistiigi/binfmt --uninstall qemu-*
-  docker run --privileged --rm tonistiigi/binfmt --install all
   docker buildx rm builder
   docker buildx create --name builder --driver docker-container --use --driver-opt env.BUILDKIT_STEP_LOG_MAX_SIZE=10485760
   docker buildx inspect --bootstrap
@@ -123,16 +117,6 @@ build_docker_image () {
   ./${ARCH}/"
   echo "$buildx_cmd"
   $buildx_cmd  || echo "Docker Build Error."
-}
-make_docker_image_script () {
-  [[ -f $(abspath "${outdir}")/crewbuild-${name}-${ARCH}.m${milestone}.sh ]] && rm $(abspath "${outdir}")/crewbuild-"${name}"-"${ARCH}".m"${milestone}".sh
-  envsubst '$name $milestone $REPOSITORY $PLATFORM $ARCH' < crewbuild.sh > crewbuild-"${name}"-"${ARCH}".m"${milestone}".sh
-  chmod +x $(abspath "${outdir}")/crewbuild-"${name}"-"${ARCH}".m"${milestone}".sh
-}
-enter_docker_image () {
-  echo "Running \"$(abspath "${outdir}")/crewbuild-${name}-${ARCH}.m${milestone}.sh\""
-  echo "Entering in..." && countdown "00:00:30"
-  exec "$(abspath "${outdir}")/crewbuild-${name}-${ARCH}.m${milestone}.sh"
 }
 main () {
   setup_base
@@ -149,7 +133,5 @@ main () {
   build_docker_image_with_docker_hub 2>&1 | tee -a crewbuild-"${name}"-"${ARCH}".m"${milestone}"-build.log
   make_cache_links 2>&1 |tee -a crewbuild-"${name}"-"${ARCH}".m"${milestone}"-build.log
   build_docker_image 2>&1 | tee -a crewbuild-"${name}"-"${ARCH}".m"${milestone}"-build.log
-  make_docker_image_script 2>&1 | tee -a crewbuild-"${name}"-"${ARCH}".m"${milestone}"-build.log
-  [[ -z "$JUST_BUILD" ]] && enter_docker_image
 }
 main
