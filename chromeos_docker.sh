@@ -51,29 +51,15 @@ get_arch () {
   esac
   CREW_KERNEL_VERSION="$(jq -r ."${name}"[\""Kernel Version"\"] boards.json)"
 }
-build_dockerfile () {
-  name=${name} milestone=${milestone} REPOSITORY=${REPOSITORY} CREW_KERNEL_VERSION=${CREW_KERNEL_VERSION} envsubst '$name $milestone $REPOSITORY $CREW_KERNEL_VERSION' < base_Dockerfile > Dockerfile
-}
 build_docker_image () {
-  docker image ls
-  dangling_images=$(docker images --filter "dangling=true" -q --no-trunc)
-  [[ -n "$dangling_images" ]] && docker rmi -f $(docker images --filter "dangling=true" -q --no-trunc)
-  docker buildx rm builder
-  docker buildx create --name builder --driver docker-container --use --driver-opt env.BUILDKIT_STEP_LOG_MAX_SIZE=10485760
-  docker buildx inspect --bootstrap
-  buildx_cmd="env PROGRESS_NO_TRUNC=1 docker buildx build \
-  --no-cache \
-  --push --platform ${PLATFORM} \
-  --tag ${REPOSITORY}/crewbuild:${name}.m${milestone} \
-  ."
-  echo "$buildx_cmd"
-  $buildx_cmd  || echo "Docker Build Error."
+  name=${name} milestone=${milestone} REPOSITORY=${REPOSITORY} CREW_KERNEL_VERSION=${CREW_KERNEL_VERSION} envsubst '$name $milestone $REPOSITORY $CREW_KERNEL_VERSION' < base_Dockerfile > Dockerfile
+  docker buildx create --name builder --driver docker-container --use
+  docker buildx build --push --platform ${PLATFORM} --tag ${REPOSITORY}/crewbuild:${name}.m${milestone} .
   rm -f Dockerfile
 }
 main () {
   get_arch
   setup_base
-  build_dockerfile
   build_docker_image
 }
 main
