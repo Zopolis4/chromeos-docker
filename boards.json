@@ -1772,7 +1772,7 @@
   "brask": {
     "User ABI": "x86_64",
     "Kernel ABI": "x86_64",
-    "Kernel Version": "5.10",
+    "Kernel Version": "5.15",
     "Recovery Images": {
       "116": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15509.81.0_brask_recovery_stable-channel_mp-v9.bin.zip",
       "117": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15572.63.0_brask_recovery_stable-channel_mp-v9.bin.zip",
