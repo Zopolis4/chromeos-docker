@@ -2,6 +2,8 @@
 FROM ${REPOSITORY}/crewbase:${name}.m${milestone}
 # Pass the kernel version that would be present on the original board through
 ENV CREW_KERNEL_VERSION=$CREW_KERNEL_VERSION
+# Set the owner of various files to root, as we lost this in file extraction
+RUN chown 0 /usr/bin/sudo
 # Setup chronos user with no password and sudo permissions
 RUN passwd -d chronos
 RUN echo "chronos ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
@@ -11,3 +13,4 @@ RUN chown chronos /usr/local /home/chronos/user /tmp
 USER chronos
 # Install chromebrew
 RUN curl -Ls git.io/vddgY | CREW_FORCE_INSTALL=1 bash
+# Properly change to the chronos user

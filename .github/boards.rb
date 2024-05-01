@@ -6,7 +6,7 @@ require 'net/http'
 # Generically parse an html table into a CSV table (CSV tables are the best way to represent tabular data in ruby)
 
 # Parse the html page into a Nokogiri document
-document = Nokogiri::HTML4(Net::HTTP.get(URI('https://www.chromium.org/chromium-os/developer-information-for-chrome-os-devices/')))
+document = Nokogiri::HTML4(Net::HTTP.get(URI('https://www.chromium.org/chromium-os/developer-library/reference/development/developer-information-for-chrome-os-devices/')))
 
 # Find the last html table in the document (the one we're interested in)
 table = document.css('table').last

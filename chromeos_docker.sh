@@ -24,7 +24,10 @@ setup_base () {
     # 7zip does not currently support extracting nested archives in one command, or extracting from stdin
     7z x "${cached_image}".zip -so > "${cached_image}".bin
     7z x "${cached_image}".bin 2.ROOT-A.img
-    7z x -snld 2.ROOT-A.img -o"${cached_image}"
+
+    # Additionally, 7zip does not currently preserve the required permissions or uid bits when extracting
+    # 7z x -snld 2.ROOT-A.img -o"${cached_image}"
+#     virt-copy-out -a 2.ROOT-A.img / ${cached_image}
 
     # Tar the unpacked filesystem for importing into docker
     (cd "${cached_image}" && tar -pcf ../"${cached_image}".tar .)

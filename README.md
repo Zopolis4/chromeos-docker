@@ -2,7 +2,6 @@
 Create ChromeOS docker images
 
 ## Usage:
-Several components of this script require root access.
 
 ```
 REPOSITORY=YOUR_DOCKER_HUB_REPOSITORY_NAME ./chromeos_docker.sh container_name chromeos_milestone
