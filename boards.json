@@ -1764,15 +1764,6 @@
     "Kernel ABI": "x86_64",
     "Kernel Version": "5.15",
     "Recovery Images": {
-      "115": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15474.84.0_nissa_recovery_stable-channel_mp-v8.bin.zip",
-      "116": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15509.72.0_nissa_recovery_stable-channel_mp-v8.bin.zip",
-      "117": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15572.63.0_nissa_recovery_stable-channel_mp-v8.bin.zip",
-      "118": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15604.57.0_nissa_recovery_stable-channel_mp-v8.bin.zip",
-      "119": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15633.72.0_nissa_recovery_stable-channel_mp-v13.bin.zip",
-      "120": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15662.88.0_nissa_recovery_stable-channel_mp-v17.bin.zip",
-      "121": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15699.72.0_nissa_recovery_stable-channel_mp-v20.bin.zip",
-      "123": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15786.58.0_nissa_recovery_stable-channel_mp-v20.bin.zip",
-      "124": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15823.60.0_nissa_recovery_stable-channel_mp-v21.bin.zip"
     }
   },
   "skyrim": {
@@ -1796,8 +1787,6 @@
     "Kernel ABI": "x86_64",
     "Kernel Version": "6.1",
     "Recovery Images": {
-      "123": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15786.58.0_rex_recovery_stable-channel_mp-v3.bin.zip",
-      "124": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15823.60.0_rex_recovery_stable-channel_mp-v3.bin.zip"
     }
   }
 }
