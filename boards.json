@@ -12,7 +12,7 @@
       "121": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15699.72.0_brya_recovery_stable-channel_mp-v14.bin.zip",
       "123": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15786.58.0_brya_recovery_stable-channel_mp-v16.bin.zip",
       "124": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15823.60.0_brya_recovery_stable-channel_mp-v16.bin.zip",
-      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.53.0_brya_recovery_stable-channel_mp-v16.bin.zip"
+      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.61.0_brya_recovery_stable-channel_mp-v16.bin.zip"
     }
   },
   "hatch": {
@@ -28,7 +28,7 @@
       "121": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15699.72.0_hatch_recovery_stable-channel_mp-v8.bin.zip",
       "123": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15786.58.0_hatch_recovery_stable-channel_mp-v8.bin.zip",
       "124": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15823.60.0_hatch_recovery_stable-channel_mp-v8.bin.zip",
-      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.53.0_hatch_recovery_stable-channel_mp-v8.bin.zip"
+      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.61.0_hatch_recovery_stable-channel_mp-v8.bin.zip"
     }
   },
   "zork": {
@@ -44,7 +44,7 @@
       "121": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15699.72.0_zork_recovery_stable-channel_mp-v9.bin.zip",
       "123": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15786.58.0_zork_recovery_stable-channel_mp-v9.bin.zip",
       "124": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15823.60.0_zork_recovery_stable-channel_mp-v9.bin.zip",
-      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.53.0_zork_recovery_stable-channel_mp-v9.bin.zip"
+      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.61.0_zork_recovery_stable-channel_mp-v9.bin.zip"
     }
   },
   "atlas": {
@@ -76,7 +76,7 @@
       "121": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15699.72.0_jacuzzi_recovery_stable-channel_mp-v15.bin.zip",
       "123": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15786.58.0_jacuzzi_recovery_stable-channel_mp-v15.bin.zip",
       "124": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15823.60.0_jacuzzi_recovery_stable-channel_mp-v15.bin.zip",
-      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.53.0_jacuzzi_recovery_stable-channel_mp-v15.bin.zip"
+      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.61.0_jacuzzi_recovery_stable-channel_mp-v15.bin.zip"
     }
   },
   "volteer": {
@@ -92,7 +92,7 @@
       "121": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15699.72.0_volteer_recovery_stable-channel_mp-v10.bin.zip",
       "123": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15786.58.0_volteer_recovery_stable-channel_mp-v10.bin.zip",
       "124": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15823.60.0_volteer_recovery_stable-channel_mp-v10.bin.zip",
-      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.53.0_volteer_recovery_stable-channel_mp-v10.bin.zip"
+      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.61.0_volteer_recovery_stable-channel_mp-v10.bin.zip"
     }
   },
   "octopus": {
@@ -108,7 +108,7 @@
       "121": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15699.72.0_octopus_recovery_stable-channel_mp-v33.bin.zip",
       "123": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15786.58.0_octopus_recovery_stable-channel_mp-v33.bin.zip",
       "124": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15823.60.0_octopus_recovery_stable-channel_mp-v33.bin.zip",
-      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.53.0_octopus_recovery_stable-channel_mp-v33.bin.zip"
+      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.61.0_octopus_recovery_stable-channel_mp-v33.bin.zip"
     }
   },
   "kukui": {
@@ -124,7 +124,7 @@
       "121": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15699.72.0_kukui_recovery_stable-channel_mp-v7.bin.zip",
       "123": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15786.58.0_kukui_recovery_stable-channel_mp-v7.bin.zip",
       "124": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15823.60.0_kukui_recovery_stable-channel_mp-v7.bin.zip",
-      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.53.0_kukui_recovery_stable-channel_mp-v7.bin.zip"
+      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.61.0_kukui_recovery_stable-channel_mp-v7.bin.zip"
     }
   },
   "asurada": {
@@ -140,7 +140,7 @@
       "121": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15699.72.0_asurada_recovery_stable-channel_mp-v5.bin.zip",
       "123": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15786.58.0_asurada_recovery_stable-channel_mp-v5.bin.zip",
       "124": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15823.60.0_asurada_recovery_stable-channel_mp-v5.bin.zip",
-      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.53.0_asurada_recovery_stable-channel_mp-v5.bin.zip"
+      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.61.0_asurada_recovery_stable-channel_mp-v5.bin.zip"
     }
   },
   "x86-mario": {
@@ -1352,7 +1352,7 @@
       "121": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15699.72.0_hana_recovery_stable-channel_mp-v10.bin.zip",
       "123": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15786.58.0_hana_recovery_stable-channel_mp-v10.bin.zip",
       "124": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15823.60.0_hana_recovery_stable-channel_mp-v10.bin.zip",
-      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.53.0_hana_recovery_stable-channel_mp-v10.bin.zip"
+      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.61.0_hana_recovery_stable-channel_mp-v10.bin.zip"
     }
   },
   "pyro": {
@@ -1384,7 +1384,7 @@
       "121": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15699.72.0_snappy_recovery_stable-channel_mp-v3.bin.zip",
       "123": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15786.58.0_snappy_recovery_stable-channel_mp-v3.bin.zip",
       "124": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15823.60.0_snappy_recovery_stable-channel_mp-v3.bin.zip",
-      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.53.0_snappy_recovery_stable-channel_mp-v3.bin.zip"
+      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.61.0_snappy_recovery_stable-channel_mp-v3.bin.zip"
     }
   },
   "caroline": {
@@ -1416,7 +1416,7 @@
       "121": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15699.72.0_reef_recovery_stable-channel_mp-v5.bin.zip",
       "123": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15786.58.0_reef_recovery_stable-channel_mp-v5.bin.zip",
       "124": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15823.60.0_reef_recovery_stable-channel_mp-v5.bin.zip",
-      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.53.0_reef_recovery_stable-channel_mp-v5.bin.zip"
+      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.61.0_reef_recovery_stable-channel_mp-v5.bin.zip"
     }
   },
   "bob": {
@@ -1481,7 +1481,7 @@
       "121": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15699.72.0_coral_recovery_stable-channel_mp-v22.bin.zip",
       "123": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15786.58.0_coral_recovery_stable-channel_mp-v22.bin.zip",
       "124": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15823.60.0_coral_recovery_stable-channel_mp-v22.bin.zip",
-      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.53.0_coral_recovery_stable-channel_mp-v22.bin.zip"
+      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.61.0_coral_recovery_stable-channel_mp-v22.bin.zip"
     }
   },
   "fizz": {
@@ -1497,7 +1497,7 @@
       "121": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15699.72.0_fizz_recovery_stable-channel_mp-v15.bin.zip",
       "123": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15786.58.0_fizz_recovery_stable-channel_mp-v15.bin.zip",
       "124": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15823.60.0_fizz_recovery_stable-channel_mp-v15.bin.zip",
-      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.53.0_fizz_recovery_stable-channel_mp-v15.bin.zip"
+      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.61.0_fizz_recovery_stable-channel_mp-v15.bin.zip"
     }
   },
   "soraka": {
@@ -1513,7 +1513,7 @@
       "121": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15699.72.0_soraka_recovery_stable-channel_mp-v3.bin.zip",
       "123": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15786.58.0_soraka_recovery_stable-channel_mp-v3.bin.zip",
       "124": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15823.60.0_soraka_recovery_stable-channel_mp-v3.bin.zip",
-      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.53.0_soraka_recovery_stable-channel_mp-v3.bin.zip"
+      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.61.0_soraka_recovery_stable-channel_mp-v3.bin.zip"
     }
   },
   "nautilus": {
@@ -1529,7 +1529,7 @@
       "121": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15699.72.0_nautilus_recovery_stable-channel_mp-v4.bin.zip",
       "123": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15786.58.0_nautilus_recovery_stable-channel_mp-v4.bin.zip",
       "124": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15823.60.0_nautilus_recovery_stable-channel_mp-v4.bin.zip",
-      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.53.0_nautilus_recovery_stable-channel_mp-v4.bin.zip"
+      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.61.0_nautilus_recovery_stable-channel_mp-v4.bin.zip"
     }
   },
   "nami": {
@@ -1545,7 +1545,7 @@
       "121": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15699.72.0_nami_recovery_stable-channel_mp-v7.bin.zip",
       "123": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15786.58.0_nami_recovery_stable-channel_mp-v7.bin.zip",
       "124": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15823.60.0_nami_recovery_stable-channel_mp-v7.bin.zip",
-      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.53.0_nami_recovery_stable-channel_mp-v7.bin.zip"
+      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.61.0_nami_recovery_stable-channel_mp-v7.bin.zip"
     }
   },
   "nocturne": {
@@ -1577,7 +1577,7 @@
       "121": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15699.72.0_grunt_recovery_stable-channel_mp-v8.bin.zip",
       "123": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15786.58.0_grunt_recovery_stable-channel_mp-v8.bin.zip",
       "124": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15823.60.0_grunt_recovery_stable-channel_mp-v8.bin.zip",
-      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.53.0_grunt_recovery_stable-channel_mp-v8.bin.zip"
+      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.61.0_grunt_recovery_stable-channel_mp-v8.bin.zip"
     }
   },
   "rammus": {
@@ -1593,7 +1593,7 @@
       "121": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15699.72.0_rammus_recovery_stable-channel_mp-v4.bin.zip",
       "123": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15786.58.0_rammus_recovery_stable-channel_mp-v4.bin.zip",
       "124": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15823.60.0_rammus_recovery_stable-channel_mp-v4.bin.zip",
-      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.53.0_rammus_recovery_stable-channel_mp-v4.bin.zip"
+      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.61.0_rammus_recovery_stable-channel_mp-v4.bin.zip"
     }
   },
   "scarlet": {
@@ -1626,7 +1626,7 @@
       "121": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15699.72.0_sarien_recovery_stable-channel_mp-v5.bin.zip",
       "123": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15786.58.0_sarien_recovery_stable-channel_mp-v5.bin.zip",
       "124": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15823.60.0_sarien_recovery_stable-channel_mp-v5.bin.zip",
-      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.53.0_sarien_recovery_stable-channel_mp-v5.bin.zip"
+      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.61.0_sarien_recovery_stable-channel_mp-v5.bin.zip"
     }
   },
   "drallion": {
@@ -1642,7 +1642,7 @@
       "121": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15699.72.0_drallion_recovery_stable-channel_mp-v4.bin.zip",
       "123": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15786.58.0_drallion_recovery_stable-channel_mp-v4.bin.zip",
       "124": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15823.60.0_drallion_recovery_stable-channel_mp-v4.bin.zip",
-      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.53.0_drallion_recovery_stable-channel_mp-v4.bin.zip"
+      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.61.0_drallion_recovery_stable-channel_mp-v4.bin.zip"
     }
   },
   "puff": {
@@ -1658,7 +1658,7 @@
       "121": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15699.72.0_puff_recovery_stable-channel_mp-v13.bin.zip",
       "123": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15786.58.0_puff_recovery_stable-channel_mp-v13.bin.zip",
       "124": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15823.60.0_puff_recovery_stable-channel_mp-v13.bin.zip",
-      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.53.0_puff_recovery_stable-channel_mp-v13.bin.zip"
+      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.61.0_puff_recovery_stable-channel_mp-v13.bin.zip"
     }
   },
   "guybrush": {
@@ -1674,7 +1674,7 @@
       "121": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15699.72.0_guybrush_recovery_stable-channel_mp-v7.bin.zip",
       "123": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15786.58.0_guybrush_recovery_stable-channel_mp-v7.bin.zip",
       "124": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15823.60.0_guybrush_recovery_stable-channel_mp-v7.bin.zip",
-      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.53.0_guybrush_recovery_stable-channel_mp-v7.bin.zip"
+      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.61.0_guybrush_recovery_stable-channel_mp-v7.bin.zip"
     }
   },
   "trogdor": {
@@ -1690,7 +1690,7 @@
       "121": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15699.72.0_trogdor_recovery_stable-channel_mp-v13.bin.zip",
       "123": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15786.58.0_trogdor_recovery_stable-channel_mp-v13.bin.zip",
       "124": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15823.60.0_trogdor_recovery_stable-channel_mp-v13.bin.zip",
-      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.53.0_trogdor_recovery_stable-channel_mp-v13.bin.zip"
+      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.61.0_trogdor_recovery_stable-channel_mp-v13.bin.zip"
     }
   },
   "dedede": {
@@ -1702,7 +1702,7 @@
       "121": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15699.72.0_dedede_recovery_stable-channel_mp-v43.bin.zip",
       "123": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15786.58.0_dedede_recovery_stable-channel_mp-v44.bin.zip",
       "124": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15823.60.0_dedede_recovery_stable-channel_mp-v48.bin.zip",
-      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.53.0_dedede_recovery_stable-channel_mp-v48.bin.zip"
+      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.61.0_dedede_recovery_stable-channel_mp-v48.bin.zip"
     }
   },
   "strongbad": {
@@ -1718,7 +1718,7 @@
       "121": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15699.72.0_strongbad_recovery_stable-channel_mp-v8.bin.zip",
       "123": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15786.58.0_strongbad_recovery_stable-channel_mp-v8.bin.zip",
       "124": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15823.60.0_strongbad_recovery_stable-channel_mp-v8.bin.zip",
-      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.53.0_strongbad_recovery_stable-channel_mp-v8.bin.zip"
+      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.61.0_strongbad_recovery_stable-channel_mp-v8.bin.zip"
     }
   },
   "cherry": {
@@ -1734,7 +1734,7 @@
       "121": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15699.72.0_cherry_recovery_stable-channel_mp-v5.bin.zip",
       "123": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15786.58.0_cherry_recovery_stable-channel_mp-v5.bin.zip",
       "124": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15823.60.0_cherry_recovery_stable-channel_mp-v5.bin.zip",
-      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.53.0_cherry_recovery_stable-channel_mp-v5.bin.zip"
+      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.61.0_cherry_recovery_stable-channel_mp-v5.bin.zip"
     }
   },
   "brask": {
@@ -1750,7 +1750,7 @@
       "121": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15699.72.0_brask_recovery_stable-channel_mp-v12.bin.zip",
       "123": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15786.58.0_brask_recovery_stable-channel_mp-v12.bin.zip",
       "124": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15823.60.0_brask_recovery_stable-channel_mp-v12.bin.zip",
-      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.53.0_brask_recovery_stable-channel_mp-v12.bin.zip"
+      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.61.0_brask_recovery_stable-channel_mp-v12.bin.zip"
     }
   },
   "corsola": {
@@ -1759,7 +1759,7 @@
     "Kernel Version": "5.15",
     "Recovery Images": {
       "124": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15823.60.0_corsola_recovery_stable-channel_mp-v11.bin.zip",
-      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.53.0_corsola_recovery_stable-channel_mp-v11.bin.zip"
+      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.61.0_corsola_recovery_stable-channel_mp-v11.bin.zip"
     }
   },
   "nissa": {
@@ -1767,7 +1767,7 @@
     "Kernel ABI": "x86_64",
     "Kernel Version": "6.1",
     "Recovery Images": {
-      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.53.0_nissa_recovery_stable-channel_mp-v21.bin.zip"
+      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.61.0_nissa_recovery_stable-channel_mp-v21.bin.zip"
     }
   },
   "skyrim": {
@@ -1783,7 +1783,7 @@
       "121": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15699.72.0_skyrim_recovery_stable-channel_mp-v7.bin.zip",
       "123": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15786.58.0_skyrim_recovery_stable-channel_mp-v7.bin.zip",
       "124": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15823.60.0_skyrim_recovery_stable-channel_mp-v7.bin.zip",
-      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.53.0_skyrim_recovery_stable-channel_mp-v7.bin.zip"
+      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.61.0_skyrim_recovery_stable-channel_mp-v7.bin.zip"
     }
   },
   "rex": {
@@ -1791,7 +1791,7 @@
     "Kernel ABI": "x86_64",
     "Kernel Version": "6.1",
     "Recovery Images": {
-      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.53.0_rex_recovery_stable-channel_mp-v3.bin.zip"
+      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.61.0_rex_recovery_stable-channel_mp-v3.bin.zip"
     }
   }
 }
