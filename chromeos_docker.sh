@@ -46,10 +46,14 @@ get_arch () {
   CREW_KERNEL_VERSION="$(jq -r ."${name}"[\""Kernel Version"\"] boards.json)"
 }
 build_docker_image () {
-  name=${name} milestone=${milestone} REPOSITORY=${REPOSITORY} CREW_KERNEL_VERSION=${CREW_KERNEL_VERSION} envsubst '$name $milestone $REPOSITORY $CREW_KERNEL_VERSION' < base_Dockerfile > Dockerfile
   docker buildx create --name builder --driver docker-container --use
-  docker buildx build --push --platform ${PLATFORM} --tag ${REPOSITORY}/crewbuild:${name}.m${milestone} .
-  rm -f Dockerfile
+  docker buildx build \
+    --push \
+    --platform ${PLATFORM} \
+    --build-arg CREWBASE=${REPOSITORY}/crewbase:${name}.m${milestone} \
+    --build-arg CREW_KERNEL_VERSION=$CREW_KERNEL_VERSION \
+    --tag ${REPOSITORY}/crewbuild:${name}.m${milestone} \
+    .
 }
 main () {
   get_arch
