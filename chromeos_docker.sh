@@ -36,14 +36,14 @@ setup_base () {
 }
 
 get_arch () {
-  kernel_arch="$(jq -r ."${name}"[\""Kernel ABI"\"] boards.json)"
+  kernel_arch="$(jq -r .\""${name}\""[\""Kernel ABI"\"] boards.json)"
   case $kernel_arch in
     x86_64)  PLATFORM="linux/amd64";;
     x86)     PLATFORM="linux/386";;
     arm)     PLATFORM="linux/arm";;
     aarch64) PLATFORM="linux/arm64";;
   esac
-  CREW_KERNEL_VERSION="$(jq -r ."${name}"[\""Kernel Version"\"] boards.json)"
+  CREW_KERNEL_VERSION="$(jq -r .\""${name}\""[\""Kernel Version"\"] boards.json)"
 }
 build_docker_image () {
   docker buildx create --name builder --driver docker-container --use
