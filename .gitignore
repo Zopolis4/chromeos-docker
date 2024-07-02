@@ -1,5 +1,4 @@
 *.zip
 *.bin
-*.img
 *.tar
 Dockerfile
