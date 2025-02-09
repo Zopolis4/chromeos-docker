@@ -1,4 +1,20 @@
 {
+  "corsola": {
+    "User ABI": "aarch64",
+    "Kernel ABI": "aarch64",
+    "Kernel Version": "5.15",
+    "Recovery Images": {
+      "124": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15823.60.0_corsola_recovery_stable-channel_mp-v11.bin.zip",
+      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.67.0_corsola_recovery_stable-channel_mp-v14.bin.zip",
+      "126": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15886.44.0_corsola_recovery_stable-channel_mp-v14.bin.zip",
+      "127": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15917.71.0_corsola_recovery_stable-channel_mp-v14.bin.zip",
+      "128": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15964.59.0_corsola_recovery_stable-channel_mp-v14.bin.zip",
+      "129": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16002.60.0_corsola_recovery_stable-channel_mp-v14.bin.zip",
+      "130": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16033.58.0_corsola_recovery_stable-channel_mp-v16.bin.zip",
+      "131": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16063.68.0_corsola_recovery_stable-channel_CorsolaMPKeys-v16.bin.zip",
+      "132": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16093.78.0_corsola_recovery_stable-channel_CorsolaMPKeys-v16.bin.zip"
+    }
+  },
   "brya": {
     "User ABI": "x86_64",
     "Kernel ABI": "x86_64",
@@ -1777,22 +1793,6 @@
       "130": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16033.58.0_brask_recovery_stable-channel_mp-v16.bin.zip",
       "131": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16063.68.0_brask_recovery_stable-channel_BraskMPKeys-v16.bin.zip",
       "132": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16093.78.0_brask_recovery_stable-channel_BraskMPKeys-v18.bin.zip"
-    }
-  },
-  "corsola": {
-    "User ABI": "aarch64",
-    "Kernel ABI": "aarch64",
-    "Kernel Version": "5.15",
-    "Recovery Images": {
-      "124": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15823.60.0_corsola_recovery_stable-channel_mp-v11.bin.zip",
-      "125": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15853.67.0_corsola_recovery_stable-channel_mp-v14.bin.zip",
-      "126": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15886.44.0_corsola_recovery_stable-channel_mp-v14.bin.zip",
-      "127": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15917.71.0_corsola_recovery_stable-channel_mp-v14.bin.zip",
-      "128": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15964.59.0_corsola_recovery_stable-channel_mp-v14.bin.zip",
-      "129": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16002.60.0_corsola_recovery_stable-channel_mp-v14.bin.zip",
-      "130": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16033.58.0_corsola_recovery_stable-channel_mp-v16.bin.zip",
-      "131": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16063.68.0_corsola_recovery_stable-channel_CorsolaMPKeys-v16.bin.zip",
-      "132": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16093.78.0_corsola_recovery_stable-channel_CorsolaMPKeys-v16.bin.zip"
     }
   },
   "nissa": {
