@@ -1,7 +1,7 @@
 {
   "corsola": {
-    "User ABI": "aarch64",
-    "Kernel ABI": "aarch64",
+    "User ABI": "arm",
+    "Kernel ABI": "arm",
     "Kernel Version": "5.15",
     "Recovery Images": {
       "126": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_15886.44.0_corsola_recovery_stable-channel_mp-v14.bin.zip",
