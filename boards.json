@@ -1911,5 +1911,12 @@
       "146": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16581.61.0_skywalker_recovery_stable-channel_SkywalkerMPKeys-v9.bin.zip",
       "147": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16610.44.0_skywalker_recovery_stable-channel_SkywalkerMPKeys-v9.bin.zip"
     }
+  },
+  "jedi": {
+    "User ABI": "aarch64",
+    "Kernel ABI": "aarch64",
+    "Kernel Version": "6.6",
+    "Recovery Images": {
+    }
   }
 }
