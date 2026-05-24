@@ -1,4 +1,13 @@
 {
+  "brox": {
+    "User ABI": "x86_64",
+    "Kernel ABI": "x86_64",
+    "Kernel Version": "6.6",
+    "Recovery Images": {
+      "146": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16581.61.0_brox_recovery_stable-channel_BroxMPKeys-v7.bin.zip",
+      "147": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16610.57.0_brox_recovery_stable-channel_BroxMPKeys-v7.bin.zip"
+    }
+  },
   "corsola": {
     "User ABI": "arm",
     "Kernel ABI": "arm",
@@ -1875,15 +1884,6 @@
       "145": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16552.59.0_geralt_recovery_stable-channel_GeraltMPKeys-v7.bin.zip",
       "146": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16581.61.0_geralt_recovery_stable-channel_GeraltMPKeys-v7.bin.zip",
       "147": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16610.57.0_geralt_recovery_stable-channel_GeraltMPKeys-v7.bin.zip"
-    }
-  },
-  "brox": {
-    "User ABI": "x86_64",
-    "Kernel ABI": "x86_64",
-    "Kernel Version": "6.6",
-    "Recovery Images": {
-      "146": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16581.61.0_brox_recovery_stable-channel_BroxMPKeys-v7.bin.zip",
-      "147": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16610.57.0_brox_recovery_stable-channel_BroxMPKeys-v7.bin.zip"
     }
   },
   "nirva": {
