@@ -4,14 +4,14 @@
     "Kernel ABI": "x86_64",
     "Kernel Version": "6.6",
     "Recovery Images": {
-      "146": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16581.61.0_brox_recovery_stable-channel_BroxMPKeys-v7.bin.zip",
       "147": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16610.57.0_brox_recovery_stable-channel_BroxMPKeys-v7.bin.zip",
       "148": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16640.61.0_brox_recovery_stable-channel_BroxMPKeys-v7.bin.zip",
       "149": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16667.62.0_brox_recovery_stable-channel_BroxMPKeys-v7.bin.zip",
       "150": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16700.61.0_brox_recovery_stable-channel_BroxMPKeys-v8.bin.zip",
       "151": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16733.57.0_brox_recovery_stable-channel_BroxMPKeys-v8.bin.zip",
       "152": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16765.51.0_brox_recovery_stable-channel_BroxMPKeys-v8.bin.zip",
-      "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_brox_recovery_stable-channel_BroxMPKeys-v8.bin.zip"
+      "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_brox_recovery_stable-channel_BroxMPKeys-v8.bin.zip",
+      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.19.0_brox_recovery_stable-channel_BroxMPKeys-v8.bin.zip"
     }
   },
   "corsola": {
@@ -35,15 +35,14 @@
     "Kernel ABI": "x86_64",
     "Kernel Version": "6.6",
     "Recovery Images": {
-      "145": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16552.59.0_brya_recovery_stable-channel_BryaMPKeys-v22.bin.zip",
-      "146": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16581.61.0_brya_recovery_stable-channel_BryaMPKeys-v22.bin.zip",
       "147": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16610.57.0_brya_recovery_stable-channel_BryaMPKeys-v22.bin.zip",
       "148": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16640.61.0_brya_recovery_stable-channel_BryaMPKeys-v22.bin.zip",
       "149": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16667.62.0_brya_recovery_stable-channel_BryaMPKeys-v22.bin.zip",
       "150": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16700.61.0_brya_recovery_stable-channel_BryaMPKeys-v23.bin.zip",
       "151": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16733.57.0_brya_recovery_stable-channel_BryaMPKeys-v23.bin.zip",
       "152": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16765.51.0_brya_recovery_stable-channel_BryaMPKeys-v23.bin.zip",
-      "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_brya_recovery_stable-channel_BryaMPKeys-v23.bin.zip"
+      "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_brya_recovery_stable-channel_BryaMPKeys-v23.bin.zip",
+      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.19.0_brya_recovery_stable-channel_BryaMPKeys-v23.bin.zip"
     }
   },
   "hatch": {
@@ -51,15 +50,14 @@
     "Kernel ABI": "x86_64",
     "Kernel Version": "4.19",
     "Recovery Images": {
-      "145": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16552.59.0_hatch_recovery_stable-channel_HatchMPKeys-v13.bin.zip",
-      "146": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16581.61.0_hatch_recovery_stable-channel_HatchMPKeys-v13.bin.zip",
       "147": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16610.57.0_hatch_recovery_stable-channel_HatchMPKeys-v13.bin.zip",
       "148": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16640.61.0_hatch_recovery_stable-channel_HatchMPKeys-v13.bin.zip",
       "149": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16667.62.0_hatch_recovery_stable-channel_HatchMPKeys-v13.bin.zip",
       "150": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16700.61.0_hatch_recovery_stable-channel_HatchMPKeys-v14.bin.zip",
       "151": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16733.57.0_hatch_recovery_stable-channel_HatchMPKeys-v14.bin.zip",
       "152": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16765.51.0_hatch_recovery_stable-channel_HatchMPKeys-v14.bin.zip",
-      "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_hatch_recovery_stable-channel_HatchMPKeys-v14.bin.zip"
+      "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_hatch_recovery_stable-channel_HatchMPKeys-v14.bin.zip",
+      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.19.0_hatch_recovery_stable-channel_HatchMPKeys-v14.bin.zip"
     }
   },
   "zork": {
@@ -67,15 +65,14 @@
     "Kernel ABI": "x86_64",
     "Kernel Version": "5.4",
     "Recovery Images": {
-      "145": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16552.59.0_zork_recovery_stable-channel_ZorkMPKeys-v14.bin.zip",
-      "146": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16581.61.0_zork_recovery_stable-channel_ZorkMPKeys-v14.bin.zip",
       "147": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16610.57.0_zork_recovery_stable-channel_ZorkMPKeys-v14.bin.zip",
       "148": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16640.61.0_zork_recovery_stable-channel_ZorkMPKeys-v14.bin.zip",
       "149": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16667.62.0_zork_recovery_stable-channel_ZorkMPKeys-v14.bin.zip",
       "150": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16700.61.0_zork_recovery_stable-channel_ZorkMPKeys-v15.bin.zip",
       "151": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16733.57.0_zork_recovery_stable-channel_ZorkMPKeys-v15.bin.zip",
       "152": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16765.51.0_zork_recovery_stable-channel_ZorkMPKeys-v15.bin.zip",
-      "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_zork_recovery_stable-channel_ZorkMPKeys-v15.bin.zip"
+      "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_zork_recovery_stable-channel_ZorkMPKeys-v15.bin.zip",
+      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.19.0_zork_recovery_stable-channel_ZorkMPKeys-v15.bin.zip"
     }
   },
   "atlas": {
@@ -116,15 +113,14 @@
     "Kernel ABI": "x86_64",
     "Kernel Version": "5.4",
     "Recovery Images": {
-      "145": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16552.59.0_volteer_recovery_stable-channel_VolteerMPKeys-v14.bin.zip",
-      "146": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16581.61.0_volteer_recovery_stable-channel_VolteerMPKeys-v14.bin.zip",
       "147": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16610.57.0_volteer_recovery_stable-channel_VolteerMPKeys-v14.bin.zip",
       "148": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16640.61.0_volteer_recovery_stable-channel_VolteerMPKeys-v14.bin.zip",
       "149": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16667.62.0_volteer_recovery_stable-channel_VolteerMPKeys-v14.bin.zip",
       "150": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16700.61.0_volteer_recovery_stable-channel_VolteerMPKeys-v15.bin.zip",
       "151": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16733.57.0_volteer_recovery_stable-channel_VolteerMPKeys-v15.bin.zip",
       "152": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16765.51.0_volteer_recovery_stable-channel_VolteerMPKeys-v15.bin.zip",
-      "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_volteer_recovery_stable-channel_VolteerMPKeys-v15.bin.zip"
+      "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_volteer_recovery_stable-channel_VolteerMPKeys-v15.bin.zip",
+      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.19.0_volteer_recovery_stable-channel_VolteerMPKeys-v15.bin.zip"
     }
   },
   "octopus": {
@@ -132,15 +128,14 @@
     "Kernel ABI": "x86_64",
     "Kernel Version": "4.14",
     "Recovery Images": {
-      "145": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16552.59.0_octopus_recovery_stable-channel_OctopusMPKeys-v38.bin.zip",
-      "146": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16581.61.0_octopus_recovery_stable-channel_OctopusMPKeys-v38.bin.zip",
       "147": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16610.57.0_octopus_recovery_stable-channel_OctopusMPKeys-v38.bin.zip",
       "148": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16640.61.0_octopus_recovery_stable-channel_OctopusMPKeys-v38.bin.zip",
       "149": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16667.62.0_octopus_recovery_stable-channel_OctopusMPKeys-v38.bin.zip",
       "150": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16700.61.0_octopus_recovery_stable-channel_OctopusMPKeys-v39.bin.zip",
       "151": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16733.57.0_octopus_recovery_stable-channel_OctopusMPKeys-v39.bin.zip",
       "152": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16765.51.0_octopus_recovery_stable-channel_OctopusMPKeys-v39.bin.zip",
-      "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_octopus_recovery_stable-channel_OctopusMPKeys-v39.bin.zip"
+      "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_octopus_recovery_stable-channel_OctopusMPKeys-v39.bin.zip",
+      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.19.0_octopus_recovery_stable-channel_OctopusMPKeys-v39.bin.zip"
     }
   },
   "kukui": {
@@ -148,15 +143,14 @@
     "Kernel ABI": "aarch64",
     "Kernel Version": "4.19",
     "Recovery Images": {
-      "145": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16552.59.0_kukui_recovery_stable-channel_KukuiMPKeys-v12.bin.zip",
-      "146": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16581.61.0_kukui_recovery_stable-channel_KukuiMPKeys-v12.bin.zip",
       "147": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16610.57.0_kukui_recovery_stable-channel_KukuiMPKeys-v12.bin.zip",
       "148": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16640.61.0_kukui_recovery_stable-channel_KukuiMPKeys-v12.bin.zip",
       "149": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16667.62.0_kukui_recovery_stable-channel_KukuiMPKeys-v12.bin.zip",
       "150": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16700.61.0_kukui_recovery_stable-channel_KukuiMPKeys-v13.bin.zip",
       "151": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16733.57.0_kukui_recovery_stable-channel_KukuiMPKeys-v13.bin.zip",
       "152": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16765.51.0_kukui_recovery_stable-channel_KukuiMPKeys-v13.bin.zip",
-      "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_kukui_recovery_stable-channel_KukuiMPKeys-v13.bin.zip"
+      "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_kukui_recovery_stable-channel_KukuiMPKeys-v13.bin.zip",
+      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.19.0_kukui_recovery_stable-channel_KukuiMPKeys-v13.bin.zip"
     }
   },
   "asurada": {
@@ -164,15 +158,14 @@
     "Kernel ABI": "aarch64",
     "Kernel Version": "5.4",
     "Recovery Images": {
-      "145": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16552.59.0_asurada_recovery_stable-channel_AsuradaMPKeys-v9.bin.zip",
-      "146": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16581.61.0_asurada_recovery_stable-channel_AsuradaMPKeys-v9.bin.zip",
       "147": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16610.57.0_asurada_recovery_stable-channel_AsuradaMPKeys-v9.bin.zip",
       "148": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16640.61.0_asurada_recovery_stable-channel_AsuradaMPKeys-v9.bin.zip",
       "149": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16667.62.0_asurada_recovery_stable-channel_AsuradaMPKeys-v9.bin.zip",
       "150": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16700.61.0_asurada_recovery_stable-channel_AsuradaMPKeys-v10.bin.zip",
       "151": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16733.57.0_asurada_recovery_stable-channel_AsuradaMPKeys-v10.bin.zip",
       "152": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16765.51.0_asurada_recovery_stable-channel_AsuradaMPKeys-v10.bin.zip",
-      "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_asurada_recovery_stable-channel_AsuradaMPKeys-v10.bin.zip"
+      "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_asurada_recovery_stable-channel_AsuradaMPKeys-v10.bin.zip",
+      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.19.0_asurada_recovery_stable-channel_AsuradaMPKeys-v10.bin.zip"
     }
   },
   "coral": {
@@ -1667,15 +1660,14 @@
     "Kernel ABI": "x86_64",
     "Kernel Version": "4.19",
     "Recovery Images": {
-      "145": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16552.59.0_drallion_recovery_stable-channel_DrallionMPKeys-v9.bin.zip",
-      "146": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16581.61.0_drallion_recovery_stable-channel_DrallionMPKeys-v9.bin.zip",
       "147": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16610.57.0_drallion_recovery_stable-channel_DrallionMPKeys-v9.bin.zip",
       "148": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16640.61.0_drallion_recovery_stable-channel_DrallionMPKeys-v9.bin.zip",
       "149": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16667.62.0_drallion_recovery_stable-channel_DrallionMPKeys-v9.bin.zip",
       "150": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16700.61.0_drallion_recovery_stable-channel_DrallionMPKeys-v10.bin.zip",
       "151": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16733.57.0_drallion_recovery_stable-channel_DrallionMPKeys-v10.bin.zip",
       "152": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16765.51.0_drallion_recovery_stable-channel_DrallionMPKeys-v10.bin.zip",
-      "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_drallion_recovery_stable-channel_DrallionMPKeys-v10.bin.zip"
+      "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_drallion_recovery_stable-channel_DrallionMPKeys-v10.bin.zip",
+      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.19.0_drallion_recovery_stable-channel_DrallionMPKeys-v10.bin.zip"
     }
   },
   "puff": {
@@ -1683,15 +1675,14 @@
     "Kernel ABI": "x86_64",
     "Kernel Version": "4.19",
     "Recovery Images": {
-      "145": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16552.59.0_puff_recovery_stable-channel_PuffMPKeys-v18.bin.zip",
-      "146": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16581.61.0_puff_recovery_stable-channel_PuffMPKeys-v18.bin.zip",
       "147": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16610.44.0_puff_recovery_stable-channel_PuffMPKeys-v18.bin.zip",
       "148": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16640.61.0_puff_recovery_stable-channel_PuffMPKeys-v18.bin.zip",
       "149": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16667.62.0_puff_recovery_stable-channel_PuffMPKeys-v18.bin.zip",
       "150": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16700.61.0_puff_recovery_stable-channel_PuffMPKeys-v19.bin.zip",
       "151": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16733.57.0_puff_recovery_stable-channel_PuffMPKeys-v19.bin.zip",
       "152": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16765.51.0_puff_recovery_stable-channel_PuffMPKeys-v19.bin.zip",
-      "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_puff_recovery_stable-channel_PuffMPKeys-v19.bin.zip"
+      "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_puff_recovery_stable-channel_PuffMPKeys-v19.bin.zip",
+      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.19.0_puff_recovery_stable-channel_PuffMPKeys-v19.bin.zip"
     }
   },
   "guybrush": {
@@ -1699,15 +1690,14 @@
     "Kernel ABI": "x86_64",
     "Kernel Version": "5.10",
     "Recovery Images": {
-      "145": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16552.59.0_guybrush_recovery_stable-channel_GuybrushMPKeys-v11.bin.zip",
-      "146": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16581.61.0_guybrush_recovery_stable-channel_GuybrushMPKeys-v11.bin.zip",
       "147": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16610.57.0_guybrush_recovery_stable-channel_GuybrushMPKeys-v11.bin.zip",
       "148": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16640.61.0_guybrush_recovery_stable-channel_GuybrushMPKeys-v11.bin.zip",
       "149": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16667.62.0_guybrush_recovery_stable-channel_GuybrushMPKeys-v11.bin.zip",
       "150": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16700.61.0_guybrush_recovery_stable-channel_GuybrushMPKeys-v12.bin.zip",
       "151": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16733.57.0_guybrush_recovery_stable-channel_GuybrushMPKeys-v12.bin.zip",
       "152": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16765.51.0_guybrush_recovery_stable-channel_GuybrushMPKeys-v12.bin.zip",
-      "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_guybrush_recovery_stable-channel_GuybrushMPKeys-v12.bin.zip"
+      "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_guybrush_recovery_stable-channel_GuybrushMPKeys-v12.bin.zip",
+      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.19.0_guybrush_recovery_stable-channel_GuybrushMPKeys-v12.bin.zip"
     }
   },
   "trogdor": {
@@ -1715,15 +1705,14 @@
     "Kernel ABI": "aarch64",
     "Kernel Version": "5.4",
     "Recovery Images": {
-      "145": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16552.59.0_trogdor_recovery_stable-channel_TrogdorMPKeys-v18.bin.zip",
-      "146": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16581.61.0_trogdor_recovery_stable-channel_TrogdorMPKeys-v18.bin.zip",
       "147": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16610.57.0_trogdor_recovery_stable-channel_TrogdorMPKeys-v18.bin.zip",
       "148": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16640.61.0_trogdor_recovery_stable-channel_TrogdorMPKeys-v18.bin.zip",
       "149": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16667.62.0_trogdor_recovery_stable-channel_TrogdorMPKeys-v18.bin.zip",
       "150": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16700.61.0_trogdor_recovery_stable-channel_TrogdorMPKeys-v19.bin.zip",
       "151": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16733.57.0_trogdor_recovery_stable-channel_TrogdorMPKeys-v19.bin.zip",
       "152": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16765.51.0_trogdor_recovery_stable-channel_TrogdorMPKeys-v19.bin.zip",
-      "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_trogdor_recovery_stable-channel_TrogdorMPKeys-v19.bin.zip"
+      "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_trogdor_recovery_stable-channel_TrogdorMPKeys-v19.bin.zip",
+      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.19.0_trogdor_recovery_stable-channel_TrogdorMPKeys-v19.bin.zip"
     }
   },
   "dedede": {
@@ -1731,15 +1720,14 @@
     "Kernel ABI": "x86_64",
     "Kernel Version": "6.1",
     "Recovery Images": {
-      "145": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16552.59.0_dedede_recovery_stable-channel_DededeMPKeys-v58.bin.zip",
-      "146": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16581.61.0_dedede_recovery_stable-channel_DededeMPKeys-v58.bin.zip",
       "147": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16610.57.0_dedede_recovery_stable-channel_DededeMPKeys-v58.bin.zip",
       "148": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16640.61.0_dedede_recovery_stable-channel_DededeMPKeys-v58.bin.zip",
       "149": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16667.62.0_dedede_recovery_stable-channel_DededeMPKeys-v58.bin.zip",
       "150": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16700.61.0_dedede_recovery_stable-channel_DededeMPKeys-v59.bin.zip",
       "151": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16733.57.0_dedede_recovery_stable-channel_DededeMPKeys-v59.bin.zip",
       "152": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16765.51.0_dedede_recovery_stable-channel_DededeMPKeys-v59.bin.zip",
-      "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_dedede_recovery_stable-channel_DededeMPKeys-v59.bin.zip"
+      "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_dedede_recovery_stable-channel_DededeMPKeys-v59.bin.zip",
+      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.19.0_dedede_recovery_stable-channel_DededeMPKeys-v59.bin.zip"
     }
   },
   "strongbad": {
@@ -1747,15 +1735,14 @@
     "Kernel ABI": "aarch64",
     "Kernel Version": "5.4",
     "Recovery Images": {
-      "145": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16552.59.0_strongbad_recovery_stable-channel_StrongbadMPKeys-v12.bin.zip",
-      "146": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16581.61.0_strongbad_recovery_stable-channel_StrongbadMPKeys-v12.bin.zip",
       "147": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16610.57.0_strongbad_recovery_stable-channel_StrongbadMPKeys-v12.bin.zip",
       "148": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16640.61.0_strongbad_recovery_stable-channel_StrongbadMPKeys-v12.bin.zip",
       "149": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16667.62.0_strongbad_recovery_stable-channel_StrongbadMPKeys-v12.bin.zip",
       "150": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16700.61.0_strongbad_recovery_stable-channel_StrongbadMPKeys-v13.bin.zip",
       "151": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16733.57.0_strongbad_recovery_stable-channel_StrongbadMPKeys-v13.bin.zip",
       "152": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16765.51.0_strongbad_recovery_stable-channel_StrongbadMPKeys-v13.bin.zip",
-      "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_strongbad_recovery_stable-channel_StrongbadMPKeys-v13.bin.zip"
+      "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_strongbad_recovery_stable-channel_StrongbadMPKeys-v13.bin.zip",
+      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.19.0_strongbad_recovery_stable-channel_StrongbadMPKeys-v13.bin.zip"
     }
   },
   "cherry": {
@@ -1763,13 +1750,12 @@
     "Kernel ABI": "arm",
     "Kernel Version": "5.10",
     "Recovery Images": {
-      "145": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16552.59.0_cherry_recovery_stable-channel_CherryMPKeys-v10.bin.zip",
-      "146": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16581.61.0_cherry_recovery_stable-channel_CherryMPKeys-v10.bin.zip",
       "147": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16610.57.0_cherry_recovery_stable-channel_CherryMPKeys-v10.bin.zip",
       "149": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16667.47.0_cherry_recovery_stable-channel_CherryMPKeys-v10.bin.zip",
       "151": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16733.57.0_cherry_recovery_stable-channel_CherryMPKeys-v11.bin.zip",
       "152": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16765.51.0_cherry_recovery_stable-channel_CherryMPKeys-v11.bin.zip",
-      "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_cherry_recovery_stable-channel_CherryMPKeys-v11.bin.zip"
+      "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_cherry_recovery_stable-channel_CherryMPKeys-v11.bin.zip",
+      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.19.0_cherry_recovery_stable-channel_CherryMPKeys-v11.bin.zip"
     }
   },
   "brask": {
@@ -1777,15 +1763,14 @@
     "Kernel ABI": "x86_64",
     "Kernel Version": "5.15",
     "Recovery Images": {
-      "145": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16552.59.0_brask_recovery_stable-channel_BraskMPKeys-v36.bin.zip",
-      "146": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16581.61.0_brask_recovery_stable-channel_BraskMPKeys-v36.bin.zip",
       "147": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16610.57.0_brask_recovery_stable-channel_BraskMPKeys-v36.bin.zip",
       "148": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16640.61.0_brask_recovery_stable-channel_BraskMPKeys-v36.bin.zip",
       "149": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16667.62.0_brask_recovery_stable-channel_BraskMPKeys-v36.bin.zip",
       "150": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16700.61.0_brask_recovery_stable-channel_BraskMPKeys-v37.bin.zip",
       "151": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16733.57.0_brask_recovery_stable-channel_BraskMPKeys-v37.bin.zip",
       "152": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16765.51.0_brask_recovery_stable-channel_BraskMPKeys-v37.bin.zip",
-      "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_brask_recovery_stable-channel_BraskMPKeys-v37.bin.zip"
+      "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_brask_recovery_stable-channel_BraskMPKeys-v37.bin.zip",
+      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.19.0_brask_recovery_stable-channel_BraskMPKeys-v37.bin.zip"
     }
   },
   "nissa": {
@@ -1793,15 +1778,14 @@
     "Kernel ABI": "x86_64",
     "Kernel Version": "6.6",
     "Recovery Images": {
-      "145": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16552.59.0_nissa_recovery_stable-channel_NissaMPKeys-v70.bin.zip",
-      "146": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16581.61.0_nissa_recovery_stable-channel_NissaMPKeys-v70.bin.zip",
       "147": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16610.57.0_nissa_recovery_stable-channel_NissaMPKeys-v70.bin.zip",
       "148": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16640.61.0_nissa_recovery_stable-channel_NissaMPKeys-v70.bin.zip",
       "149": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16667.62.0_nissa_recovery_stable-channel_NissaMPKeys-v70.bin.zip",
       "150": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16700.61.0_nissa_recovery_stable-channel_NissaMPKeys-v76.bin.zip",
       "151": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16733.57.0_nissa_recovery_stable-channel_NissaMPKeys-v76.bin.zip",
       "152": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16765.51.0_nissa_recovery_stable-channel_NissaMPKeys-v76.bin.zip",
-      "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_nissa_recovery_stable-channel_NissaMPKeys-v76.bin.zip"
+      "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_nissa_recovery_stable-channel_NissaMPKeys-v76.bin.zip",
+      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.19.0_nissa_recovery_stable-channel_NissaMPKeys-v76.bin.zip"
     }
   },
   "skyrim": {
@@ -1809,15 +1793,14 @@
     "Kernel ABI": "x86_64",
     "Kernel Version": "5.15",
     "Recovery Images": {
-      "145": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16552.59.0_skyrim_recovery_stable-channel_SkyrimMPKeys-v12.bin.zip",
-      "146": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16581.61.0_skyrim_recovery_stable-channel_SkyrimMPKeys-v12.bin.zip",
       "147": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16610.57.0_skyrim_recovery_stable-channel_SkyrimMPKeys-v12.bin.zip",
       "148": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16640.61.0_skyrim_recovery_stable-channel_SkyrimMPKeys-v12.bin.zip",
       "149": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16667.62.0_skyrim_recovery_stable-channel_SkyrimMPKeys-v12.bin.zip",
       "150": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16700.61.0_skyrim_recovery_stable-channel_SkyrimMPKeys-v13.bin.zip",
       "151": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16733.57.0_skyrim_recovery_stable-channel_SkyrimMPKeys-v13.bin.zip",
       "152": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16765.51.0_skyrim_recovery_stable-channel_SkyrimMPKeys-v13.bin.zip",
-      "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_skyrim_recovery_stable-channel_SkyrimMPKeys-v13.bin.zip"
+      "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_skyrim_recovery_stable-channel_SkyrimMPKeys-v13.bin.zip",
+      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.19.0_skyrim_recovery_stable-channel_SkyrimMPKeys-v13.bin.zip"
     }
   },
   "rex": {
@@ -1825,15 +1808,14 @@
     "Kernel ABI": "x86_64",
     "Kernel Version": "6.1",
     "Recovery Images": {
-      "145": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16552.59.0_rex_recovery_stable-channel_RexMPKeys-v7.bin.zip",
-      "146": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16581.61.0_rex_recovery_stable-channel_RexMPKeys-v7.bin.zip",
       "147": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16610.57.0_rex_recovery_stable-channel_RexMPKeys-v7.bin.zip",
       "148": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16640.61.0_rex_recovery_stable-channel_RexMPKeys-v7.bin.zip",
       "149": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16667.62.0_rex_recovery_stable-channel_RexMPKeys-v7.bin.zip",
       "150": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16700.61.0_rex_recovery_stable-channel_RexMPKeys-v8.bin.zip",
       "151": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16733.57.0_rex_recovery_stable-channel_RexMPKeys-v8.bin.zip",
       "152": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16765.51.0_rex_recovery_stable-channel_RexMPKeys-v8.bin.zip",
-      "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_rex_recovery_stable-channel_RexMPKeys-v8.bin.zip"
+      "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_rex_recovery_stable-channel_RexMPKeys-v8.bin.zip",
+      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.19.0_rex_recovery_stable-channel_RexMPKeys-v8.bin.zip"
     }
   },
   "staryu": {
@@ -1841,15 +1823,14 @@
     "Kernel ABI": "aarch64",
     "Kernel Version": "5.15",
     "Recovery Images": {
-      "145": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16552.59.0_staryu_recovery_stable-channel_StaryuMPKeys-v10.bin.zip",
-      "146": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16581.61.0_staryu_recovery_stable-channel_StaryuMPKeys-v10.bin.zip",
       "147": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16610.57.0_staryu_recovery_stable-channel_StaryuMPKeys-v10.bin.zip",
       "148": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16640.61.0_staryu_recovery_stable-channel_StaryuMPKeys-v10.bin.zip",
       "149": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16667.62.0_staryu_recovery_stable-channel_StaryuMPKeys-v10.bin.zip",
       "150": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16700.61.0_staryu_recovery_stable-channel_StaryuMPKeys-v11.bin.zip",
       "151": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16733.57.0_staryu_recovery_stable-channel_StaryuMPKeys-v11.bin.zip",
       "152": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16765.51.0_staryu_recovery_stable-channel_StaryuMPKeys-v11.bin.zip",
-      "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_staryu_recovery_stable-channel_StaryuMPKeys-v11.bin.zip"
+      "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_staryu_recovery_stable-channel_StaryuMPKeys-v11.bin.zip",
+      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.19.0_staryu_recovery_stable-channel_StaryuMPKeys-v11.bin.zip"
     }
   },
   "geralt": {
@@ -1857,15 +1838,14 @@
     "Kernel ABI": "aarch64",
     "Kernel Version": "6.1",
     "Recovery Images": {
-      "145": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16552.59.0_geralt_recovery_stable-channel_GeraltMPKeys-v7.bin.zip",
-      "146": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16581.61.0_geralt_recovery_stable-channel_GeraltMPKeys-v7.bin.zip",
       "147": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16610.57.0_geralt_recovery_stable-channel_GeraltMPKeys-v7.bin.zip",
       "148": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16640.61.0_geralt_recovery_stable-channel_GeraltMPKeys-v7.bin.zip",
       "149": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16667.62.0_geralt_recovery_stable-channel_GeraltMPKeys-v7.bin.zip",
       "150": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16700.61.0_geralt_recovery_stable-channel_GeraltMPKeys-v8.bin.zip",
       "151": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16733.57.0_geralt_recovery_stable-channel_GeraltMPKeys-v8.bin.zip",
       "152": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16765.51.0_geralt_recovery_stable-channel_GeraltMPKeys-v8.bin.zip",
-      "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_geralt_recovery_stable-channel_GeraltMPKeys-v8.bin.zip"
+      "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_geralt_recovery_stable-channel_GeraltMPKeys-v8.bin.zip",
+      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.19.0_geralt_recovery_stable-channel_GeraltMPKeys-v8.bin.zip"
     }
   },
   "nirva": {
@@ -1873,15 +1853,14 @@
     "Kernel ABI": "x86_64",
     "Kernel Version": "6.6",
     "Recovery Images": {
-      "145": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16552.59.0_nirva_recovery_stable-channel_NissaMPKeys-v70.bin.zip",
-      "146": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16581.61.0_nirva_recovery_stable-channel_NissaMPKeys-v70.bin.zip",
       "147": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16610.57.0_nirva_recovery_stable-channel_NissaMPKeys-v70.bin.zip",
       "148": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16640.61.0_nirva_recovery_stable-channel_NissaMPKeys-v70.bin.zip",
       "149": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16667.62.0_nirva_recovery_stable-channel_NissaMPKeys-v70.bin.zip",
       "150": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16700.61.0_nirva_recovery_stable-channel_NissaMPKeys-v76.bin.zip",
       "151": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16733.57.0_nirva_recovery_stable-channel_NissaMPKeys-v76.bin.zip",
       "152": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16765.51.0_nirva_recovery_stable-channel_NissaMPKeys-v76.bin.zip",
-      "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_nirva_recovery_stable-channel_NissaMPKeys-v76.bin.zip"
+      "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_nirva_recovery_stable-channel_NissaMPKeys-v76.bin.zip",
+      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.19.0_nirva_recovery_stable-channel_NissaMPKeys-v76.bin.zip"
     }
   },
   "skywalker": {
@@ -1889,15 +1868,14 @@
     "Kernel ABI": "aarch64",
     "Kernel Version": "6.6",
     "Recovery Images": {
-      "145": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16552.59.0_skywalker_recovery_stable-channel_SkywalkerMPKeys-v9.bin.zip",
-      "146": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16581.61.0_skywalker_recovery_stable-channel_SkywalkerMPKeys-v9.bin.zip",
       "147": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16610.57.0_skywalker_recovery_stable-channel_SkywalkerMPKeys-v9.bin.zip",
       "148": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16640.61.0_skywalker_recovery_stable-channel_SkywalkerMPKeys-v9.bin.zip",
       "149": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16667.62.0_skywalker_recovery_stable-channel_SkywalkerMPKeys-v9.bin.zip",
       "150": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16700.61.0_skywalker_recovery_stable-channel_SkywalkerMPKeys-v12.bin.zip",
       "151": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16733.57.0_skywalker_recovery_stable-channel_SkywalkerMPKeys-v12.bin.zip",
       "152": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16765.51.0_skywalker_recovery_stable-channel_SkywalkerMPKeys-v12.bin.zip",
-      "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_skywalker_recovery_stable-channel_SkywalkerMPKeys-v12.bin.zip"
+      "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_skywalker_recovery_stable-channel_SkywalkerMPKeys-v12.bin.zip",
+      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.19.0_skywalker_recovery_stable-channel_SkywalkerMPKeys-v12.bin.zip"
     }
   },
   "jedi": {
@@ -1911,7 +1889,8 @@
       "150": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16700.61.0_jedi_recovery_stable-channel_JediMPKeys-v5.bin.zip",
       "151": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16733.57.0_jedi_recovery_stable-channel_JediMPKeys-v5.bin.zip",
       "152": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16765.51.0_jedi_recovery_stable-channel_JediMPKeys-v5.bin.zip",
-      "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_jedi_recovery_stable-channel_JediMPKeys-v5.bin.zip"
+      "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_jedi_recovery_stable-channel_JediMPKeys-v5.bin.zip",
+      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.19.0_jedi_recovery_stable-channel_JediMPKeys-v5.bin.zip"
     }
   }
 }
