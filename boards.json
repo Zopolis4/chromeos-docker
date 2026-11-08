@@ -11,7 +11,7 @@
       "151": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16733.57.0_brox_recovery_stable-channel_BroxMPKeys-v8.bin.zip",
       "152": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16765.51.0_brox_recovery_stable-channel_BroxMPKeys-v8.bin.zip",
       "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_brox_recovery_stable-channel_BroxMPKeys-v8.bin.zip",
-      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.19.0_brox_recovery_stable-channel_BroxMPKeys-v8.bin.zip"
+      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.30.0_brox_recovery_stable-channel_BroxMPKeys-v8.bin.zip"
     }
   },
   "corsola": {
@@ -19,15 +19,14 @@
     "Kernel ABI": "arm",
     "Kernel Version": "5.15",
     "Recovery Images": {
-      "145": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16552.59.0_corsola_recovery_stable-channel_CorsolaMPKeys-v23.bin.zip",
-      "146": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16581.61.0_corsola_recovery_stable-channel_CorsolaMPKeys-v23.bin.zip",
       "147": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16610.57.0_corsola_recovery_stable-channel_CorsolaMPKeys-v23.bin.zip",
       "148": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16640.61.0_corsola_recovery_stable-channel_CorsolaMPKeys-v23.bin.zip",
       "149": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16667.62.0_corsola_recovery_stable-channel_CorsolaMPKeys-v23.bin.zip",
       "150": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16700.61.0_corsola_recovery_stable-channel_CorsolaMPKeys-v25.bin.zip",
       "151": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16733.57.0_corsola_recovery_stable-channel_CorsolaMPKeys-v25.bin.zip",
       "152": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16765.51.0_corsola_recovery_stable-channel_CorsolaMPKeys-v25.bin.zip",
-      "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_corsola_recovery_stable-channel_CorsolaMPKeys-v25.bin.zip"
+      "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_corsola_recovery_stable-channel_CorsolaMPKeys-v25.bin.zip",
+      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.30.0_corsola_recovery_stable-channel_CorsolaMPKeys-v25.bin.zip"
     }
   },
   "brya": {
@@ -42,7 +41,7 @@
       "151": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16733.57.0_brya_recovery_stable-channel_BryaMPKeys-v23.bin.zip",
       "152": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16765.51.0_brya_recovery_stable-channel_BryaMPKeys-v23.bin.zip",
       "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_brya_recovery_stable-channel_BryaMPKeys-v23.bin.zip",
-      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.19.0_brya_recovery_stable-channel_BryaMPKeys-v23.bin.zip"
+      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.30.0_brya_recovery_stable-channel_BryaMPKeys-v23.bin.zip"
     }
   },
   "hatch": {
@@ -57,7 +56,7 @@
       "151": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16733.57.0_hatch_recovery_stable-channel_HatchMPKeys-v14.bin.zip",
       "152": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16765.51.0_hatch_recovery_stable-channel_HatchMPKeys-v14.bin.zip",
       "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_hatch_recovery_stable-channel_HatchMPKeys-v14.bin.zip",
-      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.19.0_hatch_recovery_stable-channel_HatchMPKeys-v14.bin.zip"
+      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.30.0_hatch_recovery_stable-channel_HatchMPKeys-v14.bin.zip"
     }
   },
   "zork": {
@@ -72,7 +71,7 @@
       "151": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16733.57.0_zork_recovery_stable-channel_ZorkMPKeys-v15.bin.zip",
       "152": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16765.51.0_zork_recovery_stable-channel_ZorkMPKeys-v15.bin.zip",
       "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_zork_recovery_stable-channel_ZorkMPKeys-v15.bin.zip",
-      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.19.0_zork_recovery_stable-channel_ZorkMPKeys-v15.bin.zip"
+      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.30.0_zork_recovery_stable-channel_ZorkMPKeys-v15.bin.zip"
     }
   },
   "atlas": {
@@ -97,15 +96,14 @@
     "Kernel ABI": "arm",
     "Kernel Version": "4.19",
     "Recovery Images": {
-      "145": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16552.59.0_jacuzzi_recovery_stable-channel_JacuzziMPKeys-v20.bin.zip",
-      "146": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16581.61.0_jacuzzi_recovery_stable-channel_JacuzziMPKeys-v20.bin.zip",
       "147": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16610.57.0_jacuzzi_recovery_stable-channel_JacuzziMPKeys-v20.bin.zip",
       "148": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16640.61.0_jacuzzi_recovery_stable-channel_JacuzziMPKeys-v20.bin.zip",
       "149": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16667.62.0_jacuzzi_recovery_stable-channel_JacuzziMPKeys-v20.bin.zip",
       "150": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16700.61.0_jacuzzi_recovery_stable-channel_JacuzziMPKeys-v21.bin.zip",
       "151": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16733.57.0_jacuzzi_recovery_stable-channel_JacuzziMPKeys-v21.bin.zip",
       "152": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16765.51.0_jacuzzi_recovery_stable-channel_JacuzziMPKeys-v21.bin.zip",
-      "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_jacuzzi_recovery_stable-channel_JacuzziMPKeys-v21.bin.zip"
+      "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_jacuzzi_recovery_stable-channel_JacuzziMPKeys-v21.bin.zip",
+      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.30.0_jacuzzi_recovery_stable-channel_JacuzziMPKeys-v21.bin.zip"
     }
   },
   "volteer": {
@@ -120,7 +118,7 @@
       "151": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16733.57.0_volteer_recovery_stable-channel_VolteerMPKeys-v15.bin.zip",
       "152": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16765.51.0_volteer_recovery_stable-channel_VolteerMPKeys-v15.bin.zip",
       "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_volteer_recovery_stable-channel_VolteerMPKeys-v15.bin.zip",
-      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.19.0_volteer_recovery_stable-channel_VolteerMPKeys-v15.bin.zip"
+      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.30.0_volteer_recovery_stable-channel_VolteerMPKeys-v15.bin.zip"
     }
   },
   "octopus": {
@@ -135,7 +133,7 @@
       "151": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16733.57.0_octopus_recovery_stable-channel_OctopusMPKeys-v39.bin.zip",
       "152": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16765.51.0_octopus_recovery_stable-channel_OctopusMPKeys-v39.bin.zip",
       "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_octopus_recovery_stable-channel_OctopusMPKeys-v39.bin.zip",
-      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.19.0_octopus_recovery_stable-channel_OctopusMPKeys-v39.bin.zip"
+      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.30.0_octopus_recovery_stable-channel_OctopusMPKeys-v39.bin.zip"
     }
   },
   "kukui": {
@@ -150,7 +148,7 @@
       "151": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16733.57.0_kukui_recovery_stable-channel_KukuiMPKeys-v13.bin.zip",
       "152": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16765.51.0_kukui_recovery_stable-channel_KukuiMPKeys-v13.bin.zip",
       "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_kukui_recovery_stable-channel_KukuiMPKeys-v13.bin.zip",
-      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.19.0_kukui_recovery_stable-channel_KukuiMPKeys-v13.bin.zip"
+      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.30.0_kukui_recovery_stable-channel_KukuiMPKeys-v13.bin.zip"
     }
   },
   "asurada": {
@@ -165,7 +163,7 @@
       "151": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16733.57.0_asurada_recovery_stable-channel_AsuradaMPKeys-v10.bin.zip",
       "152": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16765.51.0_asurada_recovery_stable-channel_AsuradaMPKeys-v10.bin.zip",
       "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_asurada_recovery_stable-channel_AsuradaMPKeys-v10.bin.zip",
-      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.19.0_asurada_recovery_stable-channel_AsuradaMPKeys-v10.bin.zip"
+      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.30.0_asurada_recovery_stable-channel_AsuradaMPKeys-v10.bin.zip"
     }
   },
   "coral": {
@@ -1667,7 +1665,7 @@
       "151": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16733.57.0_drallion_recovery_stable-channel_DrallionMPKeys-v10.bin.zip",
       "152": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16765.51.0_drallion_recovery_stable-channel_DrallionMPKeys-v10.bin.zip",
       "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_drallion_recovery_stable-channel_DrallionMPKeys-v10.bin.zip",
-      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.19.0_drallion_recovery_stable-channel_DrallionMPKeys-v10.bin.zip"
+      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.30.0_drallion_recovery_stable-channel_DrallionMPKeys-v10.bin.zip"
     }
   },
   "puff": {
@@ -1682,7 +1680,7 @@
       "151": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16733.57.0_puff_recovery_stable-channel_PuffMPKeys-v19.bin.zip",
       "152": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16765.51.0_puff_recovery_stable-channel_PuffMPKeys-v19.bin.zip",
       "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_puff_recovery_stable-channel_PuffMPKeys-v19.bin.zip",
-      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.19.0_puff_recovery_stable-channel_PuffMPKeys-v19.bin.zip"
+      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.30.0_puff_recovery_stable-channel_PuffMPKeys-v19.bin.zip"
     }
   },
   "guybrush": {
@@ -1697,7 +1695,7 @@
       "151": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16733.57.0_guybrush_recovery_stable-channel_GuybrushMPKeys-v12.bin.zip",
       "152": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16765.51.0_guybrush_recovery_stable-channel_GuybrushMPKeys-v12.bin.zip",
       "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_guybrush_recovery_stable-channel_GuybrushMPKeys-v12.bin.zip",
-      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.19.0_guybrush_recovery_stable-channel_GuybrushMPKeys-v12.bin.zip"
+      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.30.0_guybrush_recovery_stable-channel_GuybrushMPKeys-v12.bin.zip"
     }
   },
   "trogdor": {
@@ -1712,7 +1710,7 @@
       "151": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16733.57.0_trogdor_recovery_stable-channel_TrogdorMPKeys-v19.bin.zip",
       "152": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16765.51.0_trogdor_recovery_stable-channel_TrogdorMPKeys-v19.bin.zip",
       "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_trogdor_recovery_stable-channel_TrogdorMPKeys-v19.bin.zip",
-      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.19.0_trogdor_recovery_stable-channel_TrogdorMPKeys-v19.bin.zip"
+      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.30.0_trogdor_recovery_stable-channel_TrogdorMPKeys-v19.bin.zip"
     }
   },
   "dedede": {
@@ -1727,7 +1725,7 @@
       "151": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16733.57.0_dedede_recovery_stable-channel_DededeMPKeys-v59.bin.zip",
       "152": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16765.51.0_dedede_recovery_stable-channel_DededeMPKeys-v59.bin.zip",
       "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_dedede_recovery_stable-channel_DededeMPKeys-v59.bin.zip",
-      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.19.0_dedede_recovery_stable-channel_DededeMPKeys-v59.bin.zip"
+      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.30.0_dedede_recovery_stable-channel_DededeMPKeys-v59.bin.zip"
     }
   },
   "strongbad": {
@@ -1742,7 +1740,7 @@
       "151": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16733.57.0_strongbad_recovery_stable-channel_StrongbadMPKeys-v13.bin.zip",
       "152": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16765.51.0_strongbad_recovery_stable-channel_StrongbadMPKeys-v13.bin.zip",
       "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_strongbad_recovery_stable-channel_StrongbadMPKeys-v13.bin.zip",
-      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.19.0_strongbad_recovery_stable-channel_StrongbadMPKeys-v13.bin.zip"
+      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.30.0_strongbad_recovery_stable-channel_StrongbadMPKeys-v13.bin.zip"
     }
   },
   "cherry": {
@@ -1755,7 +1753,7 @@
       "151": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16733.57.0_cherry_recovery_stable-channel_CherryMPKeys-v11.bin.zip",
       "152": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16765.51.0_cherry_recovery_stable-channel_CherryMPKeys-v11.bin.zip",
       "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_cherry_recovery_stable-channel_CherryMPKeys-v11.bin.zip",
-      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.19.0_cherry_recovery_stable-channel_CherryMPKeys-v11.bin.zip"
+      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.30.0_cherry_recovery_stable-channel_CherryMPKeys-v11.bin.zip"
     }
   },
   "brask": {
@@ -1770,7 +1768,7 @@
       "151": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16733.57.0_brask_recovery_stable-channel_BraskMPKeys-v37.bin.zip",
       "152": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16765.51.0_brask_recovery_stable-channel_BraskMPKeys-v37.bin.zip",
       "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_brask_recovery_stable-channel_BraskMPKeys-v37.bin.zip",
-      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.19.0_brask_recovery_stable-channel_BraskMPKeys-v37.bin.zip"
+      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.30.0_brask_recovery_stable-channel_BraskMPKeys-v37.bin.zip"
     }
   },
   "nissa": {
@@ -1785,7 +1783,7 @@
       "151": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16733.57.0_nissa_recovery_stable-channel_NissaMPKeys-v76.bin.zip",
       "152": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16765.51.0_nissa_recovery_stable-channel_NissaMPKeys-v76.bin.zip",
       "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_nissa_recovery_stable-channel_NissaMPKeys-v76.bin.zip",
-      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.19.0_nissa_recovery_stable-channel_NissaMPKeys-v76.bin.zip"
+      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.30.0_nissa_recovery_stable-channel_NissaMPKeys-v76.bin.zip"
     }
   },
   "skyrim": {
@@ -1800,7 +1798,7 @@
       "151": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16733.57.0_skyrim_recovery_stable-channel_SkyrimMPKeys-v13.bin.zip",
       "152": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16765.51.0_skyrim_recovery_stable-channel_SkyrimMPKeys-v13.bin.zip",
       "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_skyrim_recovery_stable-channel_SkyrimMPKeys-v13.bin.zip",
-      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.19.0_skyrim_recovery_stable-channel_SkyrimMPKeys-v13.bin.zip"
+      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.30.0_skyrim_recovery_stable-channel_SkyrimMPKeys-v13.bin.zip"
     }
   },
   "rex": {
@@ -1815,7 +1813,7 @@
       "151": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16733.57.0_rex_recovery_stable-channel_RexMPKeys-v8.bin.zip",
       "152": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16765.51.0_rex_recovery_stable-channel_RexMPKeys-v8.bin.zip",
       "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_rex_recovery_stable-channel_RexMPKeys-v8.bin.zip",
-      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.19.0_rex_recovery_stable-channel_RexMPKeys-v8.bin.zip"
+      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.30.0_rex_recovery_stable-channel_RexMPKeys-v8.bin.zip"
     }
   },
   "staryu": {
@@ -1830,7 +1828,7 @@
       "151": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16733.57.0_staryu_recovery_stable-channel_StaryuMPKeys-v11.bin.zip",
       "152": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16765.51.0_staryu_recovery_stable-channel_StaryuMPKeys-v11.bin.zip",
       "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_staryu_recovery_stable-channel_StaryuMPKeys-v11.bin.zip",
-      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.19.0_staryu_recovery_stable-channel_StaryuMPKeys-v11.bin.zip"
+      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.30.0_staryu_recovery_stable-channel_StaryuMPKeys-v11.bin.zip"
     }
   },
   "geralt": {
@@ -1845,7 +1843,7 @@
       "151": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16733.57.0_geralt_recovery_stable-channel_GeraltMPKeys-v8.bin.zip",
       "152": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16765.51.0_geralt_recovery_stable-channel_GeraltMPKeys-v8.bin.zip",
       "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_geralt_recovery_stable-channel_GeraltMPKeys-v8.bin.zip",
-      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.19.0_geralt_recovery_stable-channel_GeraltMPKeys-v8.bin.zip"
+      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.30.0_geralt_recovery_stable-channel_GeraltMPKeys-v8.bin.zip"
     }
   },
   "nirva": {
@@ -1860,7 +1858,7 @@
       "151": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16733.57.0_nirva_recovery_stable-channel_NissaMPKeys-v76.bin.zip",
       "152": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16765.51.0_nirva_recovery_stable-channel_NissaMPKeys-v76.bin.zip",
       "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_nirva_recovery_stable-channel_NissaMPKeys-v76.bin.zip",
-      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.19.0_nirva_recovery_stable-channel_NissaMPKeys-v76.bin.zip"
+      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.30.0_nirva_recovery_stable-channel_NissaMPKeys-v76.bin.zip"
     }
   },
   "skywalker": {
@@ -1875,7 +1873,7 @@
       "151": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16733.57.0_skywalker_recovery_stable-channel_SkywalkerMPKeys-v12.bin.zip",
       "152": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16765.51.0_skywalker_recovery_stable-channel_SkywalkerMPKeys-v12.bin.zip",
       "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_skywalker_recovery_stable-channel_SkywalkerMPKeys-v12.bin.zip",
-      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.19.0_skywalker_recovery_stable-channel_SkywalkerMPKeys-v12.bin.zip"
+      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.30.0_skywalker_recovery_stable-channel_SkywalkerMPKeys-v15.bin.zip"
     }
   },
   "jedi": {
@@ -1890,7 +1888,7 @@
       "151": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16733.57.0_jedi_recovery_stable-channel_JediMPKeys-v5.bin.zip",
       "152": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16765.51.0_jedi_recovery_stable-channel_JediMPKeys-v5.bin.zip",
       "154": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16805.36.0_jedi_recovery_stable-channel_JediMPKeys-v5.bin.zip",
-      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.19.0_jedi_recovery_stable-channel_JediMPKeys-v5.bin.zip"
+      "156": "https://dl.google.com/dl/edgedl/chromeos/recovery/chromeos_16836.30.0_jedi_recovery_stable-channel_JediMPKeys-v5.bin.zip"
     }
   }
 }
